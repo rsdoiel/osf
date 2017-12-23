@@ -56,7 +56,7 @@ const (
 	RightAlignment  = "Left"
 
 	// Types used in ElementSettings and Paragraph elements
-	GeneralType       = "General"
+	GeneralType       = "Normal Text"
 	SceneHeadingType  = "Scene Heading"
 	ActionType        = "Action"
 	CharacterType     = "Character"
@@ -316,25 +316,27 @@ func (para *Para) String() string {
 		src := []string{}
 		for _, text := range para.Text {
 			s := text.String()
-			switch para.Style.BaseStyleName {
-			case GeneralType:
-				s = s + "\n"
-			case SceneHeadingType:
-				s = strings.ToUpper(s) + "\n\n"
-			case ActionType:
-				s = s + "\n\n"
-			case CharacterType:
-				s = strings.ToUpper(s) + "\n"
-			case DialogueType:
-				s = s + "\n\n"
-			case ParentheticalType:
-				if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
-					s = "(" + s + ")\n"
+			if para.Style != nil {
+				switch para.Style.BaseStyleName {
+				case GeneralType:
+					s = s + "\n"
+				case SceneHeadingType:
+					s = strings.ToUpper(s) + "\n\n"
+				case ActionType:
+					s = s + "\n\n"
+				case CharacterType:
+					s = strings.ToUpper(s) + "\n"
+				case DialogueType:
+					s = s + "\n\n"
+				case ParentheticalType:
+					if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
+						s = "(" + s + ")\n"
+					}
+				case TransitionType:
+					s = strings.ToUpper(s) + "\n\n"
+				case SingingType:
+					s = "~" + s + "~\n"
 				}
-			case TransitionType:
-				s = strings.ToUpper(s) + "\n\n"
-			case SingingType:
-				s = "~" + s + "~\n"
 			}
 			//FIXME: Apply formatting, FF and LF as needed
 			src = append(src, s)
