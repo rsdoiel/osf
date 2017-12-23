@@ -13,32 +13,37 @@
 
 <h2>Bugs</h2>
 
+<ul>
+<li>[ ] String (Fountain style plain text) needs to be formatted correctly&hellip;</li>
+</ul>
+
 <h2>Next</h2>
 
 <ul>
-<li>[ ] Write osf.go, osf_test.go based on <a href="https://github.com/severdia/Open-Screenplay-Format">Open Screenplay Format 2.1</a> and in the mode of <a href="https://github.com/rsdoiel/fdx">fdx</a> package</li>
-<li>[ ] Write fdx2osf
+<li>[ ] Write osf.go, osf_test.go based on <a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> and in the mode of <a href="https://github.com/rsdoiel/fdx">fdx</a> package
 
 <ul>
-<li>[ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf (unzipped)</li>
+<li>[ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf</li>
 </ul></li>
 <li>[ ] Write osf2txt</li>
-<li>[ ] Write osf2fdx</li>
 </ul>
 
 <h2>Someday, Maybe</h2>
 
-<ul>
-<li>[ ] Support reading/parsing Fade In files (i.e. unzip the Fade In file, then call the standard osf parser)</li>
-</ul>
-
 <h2>Completed</h2>
+
+<ul>
+<li>[x] Write fadein2txt</li>
+<li>[x] self closing tags should be self closing</li>
+<li>[x] Support parsing .fadein files (i.e. unzip the Fade In file, then parse document.xml)</li>
+<li>[x] Add ParseFile() to osf.go, if file extension is &ldquo;.fadein&rdquo; then it should handle the unzipping and and parsing of document.xml as OSF</li>
+</ul>
 
 <h3>Reference links</h3>
 
 <ul>
 <li><a href="https://fountain.io">Fountain</a></li>
-<li><a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a></li>
+<li><a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> (the one targetted by osf.go)</li>
 <li><a href="https://github.com/severdia/Open-Screenplay-Format">Open Screenplay Format 2.1</a></li>
 <li><a href="https://www.fadeinpro.com">Fade In</a></li>
 <li><a href="http://www.kenttessman.com/2012/02/open-screenplay-format/">Open Screenplay Format by Kent Tessman</a></li>
