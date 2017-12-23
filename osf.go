@@ -33,6 +33,7 @@ package osf
 
 import (
 	"encoding/xml"
+	"fmt"
 	"strings"
 )
 
@@ -240,8 +241,15 @@ func (doc *OpenScreenplay) String() string {
 	return strings.Join(src, "")
 }
 
+// Parse takes a byte array and returns a OpenScreenplay object and error
 func Parse(src []byte) (*OpenScreenplay, error) {
 	doc := new(OpenScreenplay)
 	err := xml.Unmarshal(src, &doc)
 	return doc, err
+}
+
+// ParseFile reads in *.osf and *.fadin file and and returns
+// a OpenScreenplay object and error
+func ParseFile(fname string) (*OpenScreenplay, err) {
+	return nil, fmt.Errorf("ParseFile() not implemented")
 }
