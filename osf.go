@@ -48,6 +48,7 @@ var (
 	MaxLineWidth = 80
 )
 
+// OpenScreenplay holds the root structure for Unmarshaling OSF 1.2 and 2.0
 type OpenScreenplay struct {
 	XMLName    xml.Name `xml:"document"`
 	Type       string   `xml:"type,attr"`
@@ -169,15 +170,20 @@ type Entry struct {
 }
 
 type Lists struct {
-	XMLName        xml.Name         `xml:"lists"`
-	Characters     []*Character     `xml:"characters"`
-	Locations      []*Location      `xml:"locations"`
-	SceneIntros    []*SceneIntro    `xml:"scene_intros"`
-	SceneTimes     []*SceneTime     `xml:"scene_times"`
-	Extensions     []*Extension     `xml:"extensions"`
-	Transitions    []*Transition    `xml:"transitions"`
-	RevisionColors []*RevisionColor `xml:"revision_colors"`
-	TagCategories  []*TagCategory   `xml:"tag_categories"`
+	XMLName        xml.Name        `xml:"lists"`
+	Characters     *Characters     `xml:"characters,omitempty"`
+	Locations      *Locations      `xml:"locations,omitempty"`
+	SceneIntros    *SceneIntros    `xml:"scene_intros,omitempty"`
+	SceneTimes     *SceneTimes     `xml:"scene_times,omitempty"`
+	Extensions     *Extensions     `xml:"extensions,omitempty"`
+	Transitions    *Transitions    `xml:"transitions,omitempty"`
+	RevisionColors *RevisionColors `xml:"revision_colors,omitempty"`
+	TagCategories  *TagCategories  `xml:"tag_categories,omitempty"`
+}
+
+type Characters struct {
+	XMLName   xml.Name     `xml:"characters"`
+	Character []*Character `xml:"character,omitempty"`
 }
 
 type Character struct {
@@ -185,9 +191,19 @@ type Character struct {
 	Name    string   `xml:"name,attr,omitempty"`
 }
 
+type Locations struct {
+	XMLName  xml.Name    `xml:"locations"`
+	Location []*Location `xml:"location,omitempty"`
+}
+
 type Location struct {
 	XMLName xml.Name `xml:"location"`
 	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type SceneIntros struct {
+	XMLName    xml.Name      `xml:"scene_intros"`
+	SceneIntro []*SceneIntro `xml:"scene_intro,omitempty"`
 }
 
 type SceneIntro struct {
@@ -195,9 +211,19 @@ type SceneIntro struct {
 	Name    string   `xml:"name,attr,omitempty"`
 }
 
+type SceneTimes struct {
+	XMLName   xml.Name     `xml:"scene_times"`
+	SceneTime []*SceneTime `xml:"scene_time,omitempty"`
+}
+
 type SceneTime struct {
 	XMLName xml.Name `xml:"scene_time"`
 	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type Extensions struct {
+	XMLName   xml.Name     `xml:"extensions"`
+	Extension []*Extension `xml:"extension,omitempty"`
 }
 
 type Extension struct {
@@ -205,9 +231,19 @@ type Extension struct {
 	Name    string   `xml:"name,attr,omitempty"`
 }
 
+type Transitions struct {
+	XMLName    xml.Name      `xml:"transitions"`
+	Transition []*Transition `xml:"transition,omitempty"`
+}
+
 type Transition struct {
 	XMLName xml.Name `xml:"transition"`
 	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type RevisionColors struct {
+	XMLName       xml.Name         `xml:"revision_colors"`
+	RevisionColor []*RevisionColor `xml:"revision_color,omitempty"`
 }
 
 type RevisionColor struct {
@@ -218,6 +254,11 @@ type RevisionColor struct {
 	ColorIndex string   `xml:"color_index,attr,omitempty"`
 }
 
+type TagCategories struct {
+	XMLName     xml.Name       `xml:"tag_categories"`
+	TagCategory []*TagCategory `xml:"tag_category,omitempty"`
+}
+
 type TagCategory struct {
 	XMLName xml.Name `xml:"tag_category"`
 	Name    string   `xml:"name,attr,omitempty"`
@@ -225,28 +266,68 @@ type TagCategory struct {
 
 type TitlePage struct {
 	XMLName xml.Name `xml:"titlepage"`
-	Para    []*Para
+	Para    []*Para  `xml:"para,omitempty"`
+}
+
+func (text *Text) String() string {
+	if text != nil {
+		//FIXME: Apply formatting
+		return text.InnerText
+	}
+	return ""
+}
+
+func (para *Para) String() string {
+	if para != nil {
+		src := []string{}
+		for _, text := range para.Text {
+			s := text.String()
+			//FIXME: Apply formatting, FF and LF as needed
+			src = append(src, s)
+		}
+		return strings.Join(src, "")
+	}
+	return ""
 }
 
 func (paragraphs *Paragraphs) String() string {
-	return "Paragraphs.String() not implemented"
+	if paragraphs != nil {
+		src := []string{}
+		for _, para := range paragraphs.Para {
+			s := para.String()
+			// FIXME: Apply formatting, FF, LF as needed
+			src = append(src, s)
+		}
+		return strings.Join(src, "")
+	}
+	return ""
 }
 
 func (tp *TitlePage) String() string {
-	return "TitlePage.String() not implemented"
+	if tp != nil {
+		src := []string{}
+		for _, para := range tp.Para {
+			s := para.String()
+			//FIXME: Applyformatting, FF, LF as needed
+			src = append(src, s)
+		}
+		return strings.Join(src, "")
+	}
+	return ""
 }
 
 func (doc *OpenScreenplay) String() string {
-	src := []string{}
-	if doc.Info != nil {
+	if doc != nil {
+		src := []string{}
 		if doc.TitlePage != nil {
 			src = append(src, doc.TitlePage.String())
 		}
 		if doc.Paragraphs != nil {
 			src = append(src, doc.Paragraphs.String())
 		}
+		return strings.Join(src, "")
 	}
-	return strings.Join(src, "")
+	return ""
 }
 
 // Parse takes a byte array and returns a OpenScreenplay object and error
@@ -259,5 +340,7 @@ func Parse(src []byte) (*OpenScreenplay, error) {
 // ParseFile reads in *.osf and *.fadin file and and returns
 // a OpenScreenplay object and error
 func ParseFile(fname string) (*OpenScreenplay, error) {
+	//FIXME: Need to sniff version, 1.2 and 2.0 probably can use the same structs but
+	// 2.1 uses camel case for element names
 	return nil, fmt.Errorf("ParseFile() not implemented")
 }
