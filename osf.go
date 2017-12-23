@@ -32,20 +32,216 @@
 package osf
 
 import (
-	"fmt"
+	"encoding/xml"
+	"strings"
 )
 
 const (
-	Version = "v0.0.0-dev"
+	Version   = "v0.0.0-dev"
+	DocString = `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>`
+)
+
+var (
+	// MaxLineWidth is the number of characters wide a line can be
+	// based on a monospace font.
+	MaxLineWidth = 80
 )
 
 type OpenScreenplay struct {
+	XMLName    xml.Name `xml:"document"`
+	Type       string   `xml:"type,attr"`
+	Version    string   `xml:"version,attr"`
+	Info       *Info
+	Settings   *Settings
+	Styles     *Styles
+	Paragraphs *Paragraphs
+	Spelling   *Spelling
+	Lists      *Lists
+	TitlePage  *TitlePage
+}
+
+type Info struct {
+	XMLName     xml.Name `xml:"info"`
+	UUID        string   `xml:"uuid,attr,omitempty"`
+	Title       string   `xml:"title,attr,omitempty"`
+	TitleFormat string   `xml:"title_format,attr,omitempty"`
+	WrittenBy   string   `xml:"written_by,attr,omitempty"`
+	Copyright   string   `xml:"copyright,attr,omitempty"`
+	Contact     string   `xml:"contact,attr,omitempty"`
+	Drafts      string   `xml:"drafts,attr,omitempty"`
+	PageCount   string   `xml:"pagecount,attr,omitempty"`
+}
+
+type Settings struct {
+	XMLName            xml.Name `xml:"settings"`
+	PageWidth          string   `xml:"page_width,attr,omitempty"`
+	PageHeight         string   `xml:"page_height,attr,omitempty"`
+	MarginTop          string   `xml:"margin_top,attr,omitempty"`
+	MarginBottom       string   `xml:"margin_bottom,attr,omitempty"`
+	MarginLeft         string   `xml:"margin_left,attr,omitempty"`
+	MarginRight        string   `xml:"margin_right,attr,omitempty"`
+	NormalLinesPerInch string   `xml:"normal_linesperinch,attr,omitempty"`
+	DialogueContinues  string   `xml:"dialogue_continues,attr,omitempty"`
+	ContText           string   `xml:"cont_text,attr,omitempty"`
+	MoreText           string   `xml:"more_text,attr,omitempty"`
+	ContinuedText      string   `xml:"continued_text,attr,omitempty"`
+	OmittedText        string   `xml:"omitted_text,attr,omitempty"`
+	PageNumberFormat   string   `xml:"pagenumber_format,attr,omitempty"`
+	PageNumberStart    string   `xml:"pagenumber_start,attr,omitempty"`
+	PageNumberFirst    string   `xml:"pagenumber_first,attr,omitempty"`
+	Revision           string   `xml:"revision,attr,omitempty"`
+	ShowRevisions      string   `xml:"show_revisions,attr,omitempty"`
+	SceneNumbering     string   `xml:"scene_numbering,attr,omitempty"`
+	ScenesLocked       string   `xml:"scenes_locked,attr,omitempty"`
+	PageNumbering      string   `xml:"page_numbering,attr,omitempty"`
+	PagesLockeed       string   `xml:"pages_locked,attr,omitempty"`
+}
+
+type Styles struct {
+	XMLName xml.Name `xml:"styles"`
+	Style   []*Style
+}
+
+type Style struct {
+	XMLName       xml.Name `xml:"style"`
+	Name          string   `xml:"name,attr,omitempty"`
+	Builtin       string   `xml:"builtin,attr,omitempty"`
+	BuiltinIndex  string   `xml:"builtin_index,attr,omitempty"`
+	Label         string   `xml:"label,attr,omitempty"`
+	BaseStyleName string   `xml:"basestylename,attr,omitempty"`
+	StyleEnter    string   `xml:"style_enter,attr,omitempty"`
+	Font          string   `xml:"font,attr,omitempty"`
+	Size          string   `xml:"size,attr,omitempty"`
+	SpaceBefore   string   `xml:"spacebefore,attr,omitempty"`
+	StyleTab      string   `xml:"style_tab,attr,omitempty"`
+	KeepWithNext  string   `xml:"keepwithnext,attr,omitempty"`
+	Effects       string   `xml:"effects,attr,omitempty"`
+	LeftIdent     string   `xml:"leftindent,attr,omitempty"`
+	RightIdent    string   `xml:"rightindent,attr,omitempty"`
+	Align         string   `xml:"align,attr,omitempty"`
+}
+
+type Paragraphs struct {
+	XMLName xml.Name `xml:"paragraphs"`
+	Para    []*Para
+}
+
+type Para struct {
+	XMLName    xml.Name `xml:"para"`
+	PageNumber string   `xml:"page_number,attr,omitempty"`
+	Bookmark   string   `xml:"bookmark,attr,omitempty"`
+	Style      *Style
+	Text       []*Text
+	Marks      *Marks
+}
+
+type Text struct {
+	XMLName   xml.Name `xml:"text"`
+	InnerText string   `xml:",chardata"`
+}
+
+type Marks struct {
+	XMLName xml.Name `xml:"marks"`
+	Mark    []*Mark
+}
+
+type Mark struct {
+	XMLName  xml.Name `xml:"mark"`
+	At       string   `xml:"at,attr,omitempty"`
+	Revision string   `xml:"revision,attr,omitempty"`
+}
+
+type Spelling struct {
+	XMLName        xml.Name `xml:"spelling"`
+	Language       string   `xml:"language,attr,omitempty"`
+	UserDictionary *UserDictionary
+}
+
+type UserDictionary struct {
+	XMLName xml.Name `xml:"user_dictionary"`
+	Entry   []*Entry
+}
+
+type Entry struct {
+	XMLName xml.Name `xml:"entry"`
+	Word    string   `xml:"work,attr,omitempty"`
+}
+
+type Lists struct {
+	XMLName        xml.Name         `xml:"lists"`
+	Characters     []*Character     `xml:"characters"`
+	Locations      []*Location      `xml:"locations"`
+	SceneIntros    []*SceneIntro    `xml:"scene_intros"`
+	SceneTimes     []*SceneTime     `xml:"scene_times"`
+	Extensions     []*Extension     `xml:"extensions"`
+	Transitions    []*Transition    `xml:"transitions"`
+	RevisionColors []*RevisionColor `xml:"revision_colors"`
+	TagCategories  []*TagCategory   `xml:"tag_categories"`
+}
+
+type Character struct {
+	XMLName xml.Name `xml:"character"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type Location struct {
+	XMLName xml.Name `xml:"location"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type SceneIntro struct {
+	XMLName xml.Name `xml:"scene_intro"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type SceneTime struct {
+	XMLName xml.Name `xml:"scene_time"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type Extension struct {
+	XMLName xml.Name `xml:"extension"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type Transition struct {
+	XMLName xml.Name `xml:"transition"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type RevisionColor struct {
+	XMLName    xml.Name `xml:"revision_color"`
+	Name       string   `xml:"name,attr,omitempty"`
+	Index      string   `xml:"index,attr,omitempty"`
+	ColorName  string   `xml:"color_name,attr,omitempty"`
+	ColorIndex string   `xml:"color_index,attr,omitempty"`
+}
+
+type TagCategory struct {
+	XMLName xml.Name `xml:"tag_category"`
+	Name    string   `xml:"name,attr,omitempty"`
+}
+
+type TitlePage struct {
+	XMLName xml.Name `xml:"titlepage"`
+	Para    []*Para
 }
 
 func (doc *OpenScreenplay) String() string {
-	return "OpenScreenplay.String() not implemented"
+	src := []string{}
+	if doc.Info != nil {
+		if doc.TitlePage != nil {
+			src = append(src, doc.TitlePage.String())
+		}
+		if doc.Paragraphs != nil {
+			src = append(src, doc.Paragraphs.String())
+		}
+	}
+	return strings.Join(src, "")
 }
 
 func Parse(src []byte) (*OpenScreenplay, error) {
-	return nil, fmt.Errorf("osf.Parse() not implemented")
+	doc := new(OpenScreenplay)
+	err := xml.Unmarshal(src, &doc)
+	return doc, err
 }
