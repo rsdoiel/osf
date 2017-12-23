@@ -45,10 +45,11 @@ const (
 	DocString = `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>`
 
 	// Style
-	UnderlineStyle = "Underline"
-	ItalicStyle    = "Italic"
-	BoldStyle      = "Bold"
-	AllCapsStyle   = "AllCaps"
+	UnderlineStyle     = "1"
+	ItalicStyle        = "1"
+	BoldStyle          = "1"
+	AllCapsStyle       = "1"
+	StrikethroughStyle = "1"
 
 	// Alignments
 	CenterAlignment = "Center"
@@ -172,8 +173,13 @@ type Para struct {
 }
 
 type Text struct {
-	XMLName   xml.Name `xml:"text"`
-	InnerText string   `xml:",chardata"`
+	XMLName       xml.Name `xml:"text"`
+	Underline     string   `xml:"underline,attr,omitempty"`
+	Italic        string   `xml:"italic,attr,omitempty"`
+	Bold          string   `xml:"bold,attr,omitempty"`
+	Strikethrough string   `xml:"strikethrough,attr,omitempty"`
+	AllCaps       string   `xml:"allcaps,attr,omitempty"`
+	InnerText     string   `xml:",chardata"`
 }
 
 type Marks struct {
@@ -305,8 +311,25 @@ type TitlePage struct {
 
 func (text *Text) String() string {
 	if text != nil {
-		//FIXME: Apply formatting
-		return text.InnerText
+		s := text.InnerText
+		if strings.TrimSpace(s) != "" {
+			if text.Underline == UnderlineStyle {
+				s = "_" + s + "_"
+			}
+			if text.Italic == ItalicStyle {
+				s = "*" + s + "*"
+			}
+			if text.Bold == BoldStyle {
+				s = "**" + s + "**"
+			}
+			if text.AllCaps == AllCapsStyle {
+				s = strings.ToUpper(s)
+			}
+			if text.Strikethrough == StrikethroughStyle {
+				s = "~~" + s + "~~"
+			}
+		}
+		return s
 	}
 	return ""
 }
