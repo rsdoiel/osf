@@ -43,6 +43,37 @@ import (
 const (
 	Version   = "v0.0.0-dev"
 	DocString = `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>`
+
+	// Style
+	UnderlineStyle = "Underline"
+	ItalicStyle    = "Italic"
+	BoldStyle      = "Bold"
+	AllCapsStyle   = "AllCaps"
+
+	// Alignments
+	CenterAlignment = "Center"
+	LeftAlignment   = "Left"
+	RightAlignment  = "Left"
+
+	// Types used in ElementSettings and Paragraph elements
+	GeneralType       = "General"
+	SceneHeadingType  = "Scene Heading"
+	ActionType        = "Action"
+	CharacterType     = "Character"
+	DialogueType      = "Dialogue"
+	ParentheticalType = "Parenthetical"
+	TransitionType    = "Transition"
+	CastListType      = "Cast List"
+	ShotType          = "Shot"
+	SingingType       = "Singing"
+
+	// DynamicLabel types
+	PageNoType      = "Page #"
+	LastRevisedType = "Last Revised"
+
+	// Tabstop types
+	RightType = "Right"
+	LeftType  = "Left"
 )
 
 var (
@@ -285,6 +316,26 @@ func (para *Para) String() string {
 		src := []string{}
 		for _, text := range para.Text {
 			s := text.String()
+			switch para.Style.BaseStyleName {
+			case GeneralType:
+				s = s + "\n"
+			case SceneHeadingType:
+				s = strings.ToUpper(s) + "\n\n"
+			case ActionType:
+				s = s + "\n\n"
+			case CharacterType:
+				s = strings.ToUpper(s) + "\n"
+			case DialogueType:
+				s = s + "\n\n"
+			case ParentheticalType:
+				if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
+					s = "(" + s + ")\n"
+				}
+			case TransitionType:
+				s = strings.ToUpper(s) + "\n\n"
+			case SingingType:
+				s = "~" + s + "~\n"
+			}
 			//FIXME: Apply formatting, FF and LF as needed
 			src = append(src, s)
 		}

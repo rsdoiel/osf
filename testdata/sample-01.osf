@@ -8,6 +8,10 @@
              <text>Fade in:</text>
          </para>
          <para>
+            <tyle basestylename="Scene Heading"/>
+            <text>EXT. LIBRARY - DAY</text>
+         </para>
+         <para>
              <style basestylename="Action"/>
              <text>A PROGRAMMER typing at an old laptop</text>
          </para>
