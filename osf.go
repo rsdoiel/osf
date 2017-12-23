@@ -32,8 +32,11 @@
 package osf
 
 import (
+	"archive/zip"
 	"encoding/xml"
-	"fmt"
+	//"fmt" // DEBUG
+	"io/ioutil"
+	"path"
 	"strings"
 )
 
@@ -50,16 +53,16 @@ var (
 
 // OpenScreenplay holds the root structure for Unmarshaling OSF 1.2 and 2.0
 type OpenScreenplay struct {
-	XMLName    xml.Name `xml:"document"`
-	Type       string   `xml:"type,attr"`
-	Version    string   `xml:"version,attr"`
-	Info       *Info
-	Settings   *Settings
-	Styles     *Styles
-	Paragraphs *Paragraphs
-	Spelling   *Spelling
-	Lists      *Lists
-	TitlePage  *TitlePage
+	XMLName    xml.Name    `xml:"document"`
+	Type       string      `xml:"type,attr"`
+	Version    string      `xml:"version,attr"`
+	Info       *Info       `xml:"info"`
+	Settings   *Settings   `xml:"settings"`
+	Styles     *Styles     `xml:"styles,omitempty"`
+	Paragraphs *Paragraphs `xml:"paragraphs"`
+	Spelling   *Spelling   `xml:"spelling,omitempty"`
+	Lists      *Lists      `xml:"lists"`
+	TitlePage  *TitlePage  `xml:"titlepage,omitempty"`
 }
 
 type Info struct {
@@ -125,16 +128,16 @@ type Style struct {
 
 type Paragraphs struct {
 	XMLName xml.Name `xml:"paragraphs"`
-	Para    []*Para
+	Para    []*Para  `xml:"para,omitempty"`
 }
 
 type Para struct {
 	XMLName    xml.Name `xml:"para"`
 	PageNumber string   `xml:"page_number,attr,omitempty"`
 	Bookmark   string   `xml:"bookmark,attr,omitempty"`
-	Style      *Style
-	Text       []*Text
-	Marks      *Marks
+	Style      *Style   `xml:"style,omitempty"`
+	Text       []*Text  `xml:"text,omitempty"`
+	Marks      *Marks   `xml:"marks,omitempty"`
 }
 
 type Text struct {
@@ -144,7 +147,7 @@ type Text struct {
 
 type Marks struct {
 	XMLName xml.Name `xml:"marks"`
-	Mark    []*Mark
+	Mark    []*Mark  `xml:"mark,omitempty"`
 }
 
 type Mark struct {
@@ -154,14 +157,14 @@ type Mark struct {
 }
 
 type Spelling struct {
-	XMLName        xml.Name `xml:"spelling"`
-	Language       string   `xml:"language,attr,omitempty"`
-	UserDictionary *UserDictionary
+	XMLName        xml.Name        `xml:"spelling"`
+	Language       string          `xml:"language,attr,omitempty"`
+	UserDictionary *UserDictionary `xml:"user_dictionary,omitempty"`
 }
 
 type UserDictionary struct {
 	XMLName xml.Name `xml:"user_dictionary"`
-	Entry   []*Entry
+	Entry   []*Entry `xml:"entry,omitempty"`
 }
 
 type Entry struct {
@@ -340,7 +343,44 @@ func Parse(src []byte) (*OpenScreenplay, error) {
 // ParseFile reads in *.osf and *.fadin file and and returns
 // a OpenScreenplay object and error
 func ParseFile(fname string) (*OpenScreenplay, error) {
+	var (
+		src []byte
+		ext string
+		err error
+	)
+	src = []byte{}
+	ext = path.Ext(fname)
+	if strings.ToLower(ext) == ".fadein" {
+		// Open a zip archive for reading.
+		r, err := zip.OpenReader(fname)
+		if err != nil {
+			return nil, err
+		}
+		defer r.Close()
+
+		// Iterate through the files in the archive,
+		// printing some of their contents.
+		for _, f := range r.File {
+			if f.Name == "document.xml" {
+				rc, err := f.Open()
+				if err != nil {
+					return nil, err
+				}
+				src, err = ioutil.ReadAll(rc)
+				if err != nil {
+					return nil, err
+				}
+				rc.Close()
+				break
+			}
+		}
+	} else {
+		src, err = ioutil.ReadFile(fname)
+		if err != nil {
+			return nil, err
+		}
+	}
 	//FIXME: Need to sniff version, 1.2 and 2.0 probably can use the same structs but
 	// 2.1 uses camel case for element names
-	return nil, fmt.Errorf("ParseFile() not implemented")
+	return Parse(src)
 }
