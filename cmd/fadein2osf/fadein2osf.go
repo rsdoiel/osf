@@ -1,6 +1,5 @@
 //
-// osf2txt converts an Open Screenplay Format 2.1 XML document into a plain text
-// suitable to read from the console.
+// fadein2osf will convert a Fade In file to OSF 2.0.
 //
 // @author R. S. Doiel, <rsdoiel@gmail.com>
 //
@@ -33,10 +32,9 @@
 package main
 
 import (
+	"encoding/xml"
 	"fmt"
-	"io/ioutil"
 	"os"
-	"path"
 
 	// Caltech Library Packages
 	"github.com/caltechlibrary/cli"
@@ -46,17 +44,17 @@ import (
 )
 
 var (
-	description = `osf2txt is a command line program that reads an osf file
-and returns plain text
+	description = `fadein2osf is a command line program that reads an ".fadein" file
+and write outs a OSF 2.0 XML.
 `
 
-	examples = `Cervert *screenplay.osf* into *screenplay.txt*.
+	examples = `Convert *screenplay.fadein* into *screenplay.osf*.
 
-    osf2txt -i screenplay.osf -o screenplay.txt
+    fadein2osf -i screenplay.fadein -o screenplay.osf
 
-Or alternatively
+Display converted OSF 2.0 XML to the console
 
-    cat screenplay.osf | osf2txt > screenplay.txt
+	fadein2osf -i screenplay.fadein
 `
 
 	// Standard Options
@@ -120,32 +118,29 @@ func main() {
 		os.Exit(0)
 	}
 
-	// Special case of input file is a .fadein, we use ParseFile...
-	var (
-		screenplay *osf.OpenScreenplay
-	)
-	if path.Ext(inputFName) != "" {
-		screenplay, err = osf.ParseFile(inputFName)
-		cli.ExitOnError(app.Eout, err, quiet)
-	} else {
-		app.In, err = cli.Open(inputFName, os.Stdin)
-		cli.ExitOnError(app.Eout, err, quiet)
-		defer cli.CloseFile(inputFName, app.In)
-		// ReadAll of input
-		src, err := ioutil.ReadAll(app.In)
-		cli.ExitOnError(app.Eout, err, quiet)
-		// Parse input
-		screenplay, err = osf.Parse(src)
-		cli.OnError(app.Eout, err, quiet)
+	if inputFName == "" || inputFName == "-" {
+		fmt.Fprintln(app.Eout, "Missing a Fade In filename, e.g. fadein2osf -i screenplay.fadein")
+		os.Exit(1)
 	}
 
-	// Create a string version of screenplay
-	s := screenplay.String()
+	screenplay, err := osf.ParseFile(inputFName)
+	if err != nil {
+		fmt.Fprintln(app.Eout, "error:", err)
+		os.Exit(1)
+	}
+	// Now marshal the screenplay  to get XML as []byte
+	src, err := xml.MarshalIndent(screenplay, " ", "    ")
+	if err != nil {
+		fmt.Fprintln(app.Eout, "error:", err)
+		os.Exit(1)
+	}
+	// Cleanup self closing tags
+	src = osf.CleanupSelfClosingElements(src)
 
-	//and finally render the string version of the screenplay
+	//and final write out our byte array
 	if newLine {
-		fmt.Fprintln(app.Out, s)
+		fmt.Fprintf(app.Out, "%s\n", src)
 	} else {
-		fmt.Fprint(app.Out, s)
+		fmt.Fprintf(app.Out, "%s", src)
 	}
 }

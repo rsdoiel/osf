@@ -33,8 +33,8 @@ package osf
 
 import (
 	"archive/zip"
+	"bytes"
 	"encoding/xml"
-	//"fmt" // DEBUG
 	"io/ioutil"
 	"path"
 	"strings"
@@ -383,4 +383,12 @@ func ParseFile(fname string) (*OpenScreenplay, error) {
 	//FIXME: Need to sniff version, 1.2 and 2.0 probably can use the same structs but
 	// 2.1 uses camel case for element names
 	return Parse(src)
+}
+
+// CleanupSelfClosingElements changes something like <styles></styles> to <styles/>
+func CleanupSelfClosingElements(src []byte) []byte {
+	for _, elem := range []string{"info", "settings", "styles", "style", "mark", "text", "entry", "character", "location", "scene_time", "extension", "revision_color", "tag_category", "transition", "spelling", "user_dictionary", "paragraphs", "para", "locations"} {
+		src = bytes.Replace(src, []byte("></"+elem+">"), []byte("/>"), -1)
+	}
+	return src
 }
