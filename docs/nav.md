@@ -3,7 +3,8 @@
 + [README](../)
 + [LICENSE](../license.html)
 + [INSTALL](../install.html)
-+ [Documentation](./osf2txt.html)
++ [Documentation](./)
++ [Test data](../testdata.html)
 + [TODO](../TODO.html)
 + [Github](https://github.com/rsdoiel/osf)
 
