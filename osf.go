@@ -228,6 +228,14 @@ type TitlePage struct {
 	Para    []*Para
 }
 
+func (paragraphs *Paragraphs) String() string {
+	return "Paragraphs.String() not implemented"
+}
+
+func (tp *TitlePage) String() string {
+	return "TitlePage.String() not implemented"
+}
+
 func (doc *OpenScreenplay) String() string {
 	src := []string{}
 	if doc.Info != nil {
@@ -250,6 +258,6 @@ func Parse(src []byte) (*OpenScreenplay, error) {
 
 // ParseFile reads in *.osf and *.fadin file and and returns
 // a OpenScreenplay object and error
-func ParseFile(fname string) (*OpenScreenplay, err) {
+func ParseFile(fname string) (*OpenScreenplay, error) {
 	return nil, fmt.Errorf("ParseFile() not implemented")
 }
