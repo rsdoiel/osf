@@ -6,14 +6,14 @@
 ## Next
 
 + [ ] Write osf.go, osf_test.go based on [Open Screenplay Format 2.1](https://github.com/severdia/Open-Screenplay-Format) and in the mode of [fdx](https://github.com/rsdoiel/fdx) package
-+ [ ] Write fdx2osf
-    + [ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf (unzipped)
+    + [ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf
 + [ ] Write osf2txt
 + [ ] Write osf2fdx
++ [ ] Write fdx2osf
 
 ## Someday, Maybe
 
-+ [ ] Support reading/parsing Fade In files (i.e. unzip the Fade In file, then call the standard osf parser)
++ [ ] Support parsing .fadein files (i.e. unzip the Fade In file, then parse document.xml)
 
 ## Completed
 
