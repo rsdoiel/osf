@@ -342,29 +342,29 @@ func (para *Para) String() string {
 			if para.Style != nil {
 				switch para.Style.BaseStyleName {
 				case GeneralType:
-					s = s + "\n"
+					//s = s + "\n"
 				case SceneHeadingType:
-					s = strings.ToUpper(s) + "\n\n"
-				case ActionType:
-					s = s + "\n\n"
-				case CharacterType:
 					s = strings.ToUpper(s) + "\n"
+				case ActionType:
+					s = s + "\n"
+				case CharacterType:
+					s = strings.ToUpper(s)
 				case DialogueType:
-					s = s + "\n\n"
+					s = s + "\n"
 				case ParentheticalType:
 					if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
-						s = "(" + s + ")\n"
+						s = "(" + s + ")"
 					}
 				case TransitionType:
-					s = strings.ToUpper(s) + "\n\n"
+					s = strings.ToUpper(s) + "\n"
 				case SingingType:
-					s = "~" + s + "~\n"
+					s = "~" + s + "~"
 				}
 			}
 			//FIXME: Apply formatting, FF and LF as needed
 			src = append(src, s)
 		}
-		return strings.Join(src, "")
+		return strings.Join(src, "") + "\n"
 	}
 	return ""
 }

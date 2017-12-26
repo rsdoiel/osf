@@ -50,33 +50,33 @@ func TestToString(t *testing.T) {
 		t.Errorf("expected (*Text.InnerText) %q, got %q for %T", expected, result, text)
 	}
 
+	expected = expected + "\n"
 	para := new(Para)
 	para.Text = append(para.Text, text)
 	result = para.String()
-	if (expected + "\n") != result {
+	if (expected) != result {
 		t.Errorf("expected %q, got %q for %T", expected, result, para)
 	}
 	paragraphs := new(Paragraphs)
 	paragraphs.Para = append(paragraphs.Para, para)
 	result = paragraphs.String()
-	if (expected + "\n") != result {
+	if (expected) != result {
 		t.Errorf("expected %q, got %q for %T", expected, result, paragraphs)
 	}
 	titlePage := new(TitlePage)
 	titlePage.Para = paragraphs.Para
 	result = titlePage.String()
-	if (expected + "\n") != result {
+	if (expected) != result {
 		t.Errorf("expected %q, got %q for %T", expected, result, titlePage)
 	}
 	doc := new(OpenScreenplay)
 	doc.TitlePage = titlePage
 	doc.Paragraphs = paragraphs
-	expected = fmt.Sprintf("%s\n\n%s\n", expected, expected)
+	expected = fmt.Sprintf("%s%s", expected, expected)
 	result = doc.String()
 	if expected != result {
 		t.Errorf("expected %q, got %q for %T", expected, result, doc)
 	}
-
 }
 
 func TestMain(m *testing.M) {
