@@ -1,5 +1,5 @@
 //
-// osf is a package for working with Open Screenplay Format 2.x XML documents.
+// osf is a package for working with Open Screenplay Format 1.2 and 2.0 XML documents.
 //
 // @author R. S. Doiel, <rsdoiel@gmail.com>
 //
