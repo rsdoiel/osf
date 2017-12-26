@@ -3,18 +3,24 @@
 
 ## Bugs
 
-+ [ ] String (Fountain style plain text) needs to be formatted correctly...
 
 ## Next
 
-+ [ ] Write osf.go, osf_test.go based on [Open Screenplay Format 2.0](https://sourceforge.net/projects/openscrfmt/) and in the mode of [fdx](https://github.com/rsdoiel/fdx) package
-    + [ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf
-+ [ ] Write osf2txt
 
 ## Someday, Maybe
 
++ [ ] Add support for Ron Severdia's Open Screenplay Format 2.1 spec
+    + rename divergent structs' xml defs with 20 and 21 suffix
+    + make sure they are all 20/21 structs are treaded as tag ",omitempty" 
+    + duplicate String methods as needed
+    + Parse, ParseFile should work without sniffing using a single struct tree for 1.2, 2.0 or 2.1 
+
 ## Completed
 
++ [x] String (Fountain style plain text) needs to be formatted correctly...
++ [x] Write osf.go, osf_test.go based on [Open Screenplay Format 2.0](https://sourceforge.net/projects/openscrfmt/) and in the mode of [fdx](https://github.com/rsdoiel/fdx) package
++ [x] Write osf2txt
++ [x] Write fadein2osf
 + [x] Write fadein2txt
 + [x] self closing tags should be self closing
 + [x] Support parsing .fadein files (i.e. unzip the Fade In file, then parse document.xml)
