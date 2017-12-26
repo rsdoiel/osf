@@ -27,4 +27,5 @@
 + [Open Screenplay Format 2.1](https://github.com/severdia/Open-Screenplay-Format)
 + [Fade In](https://www.fadeinpro.com)
 + [Open Screenplay Format by Kent Tessman](http://www.kenttessman.com/2012/02/open-screenplay-format/)
++ [screenplay-parser](https://github.com/azcoppen/screenplay-parser) - a PHP repo with a really nice README.md discussing format and convertion issues and challenges
 
