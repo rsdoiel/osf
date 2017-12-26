@@ -5,67 +5,57 @@
 <styles><style name="Normal Text" builtin="1" builtin_index="0" label="Normal Text" font="Courier Screenplay" size="12"/><style name="Scene Heading" builtin="1" builtin_index="1" label="Scene Heading" basestylename="Normal Text" style_enter="Action" font="Courier Screenplay" size="12" spacebefore="2" keepwithnext="1" effects="65537"/><style name="Action" builtin="1" builtin_index="2" label="Action" basestylename="Normal Text" style_tab="Character" font="Courier Screenplay" size="12" spacebefore="1" effects="131072"/><style name="Character" builtin="1" builtin_index="3" label="Character" basestylename="Normal Text" style_enter="Dialogue" style_tab="Action" font="Courier Screenplay" size="12" spacebefore="1" keepwithnext="1" leftindent="685" effects="262145"/><style name="Parenthetical" builtin="1" builtin_index="4" label="Parenthetical" basestylename="Normal Text" style_enter="Dialogue" style_tab="Dialogue" font="Courier Screenplay" size="12" keepwithnext="1" leftindent="558" rightindent="508" effects="524288"/><style name="Dialogue" builtin="1" builtin_index="5" label="Dialogue" basestylename="Normal Text" style_enter="Action" style_tab="Parenthetical" font="Courier Screenplay" size="12" leftindent="381" rightindent="254" effects="1048576"/><style name="Transition" builtin="1" builtin_index="6" label="Transition" basestylename="Normal Text" style_enter="Scene Heading" font="Courier Screenplay" size="12" spacebefore="1" align="right" effects="2097153"/><style name="Shot" builtin="1" builtin_index="7" label="Shot" basestylename="Normal Text" style_enter="Action" font="Courier Screenplay" size="12" spacebefore="1" keepwithnext="1" effects="4194305"/></styles>
 <paragraphs>
 <para>
-<style basestylename="Normal Text" align="center"/>
+<style basestylename="Action" align="center"/>
 <text bold="1">SAMPLE 03</text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
+<style basestylename="Action" align="center"/>
 <text bold="1">
 </text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>Written by</text>
-</para>
-<para>
-<style basestylename="Normal Text" align="center"/>
-<text>
+<style basestylename="Action" align="center"/>
+<text bold="1">
 </text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>
+<style basestylename="Action" align="center"/>
+<text bold="1">
 </text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
+<style basestylename="Action" align="center"/>
+<text>Written By</text>
+</para>
+<para>
+<style basestylename="Action" align="center"/>
 <text>Jane Doe</text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
+<style basestylename="Action" align="center"/>
 <text>
 </text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>Story By</text>
+<style basestylename="Action" align="center"/>
+<text>Source by</text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>
-</text>
+<style basestylename="Action" align="center"/>
+<text>The JD</text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>JD</text>
-</para>
-<para>
-<style basestylename="Normal Text" align="center"/>
+<style basestylename="Action" align="center"/>
 <text>1/1/2018</text>
 </para>
 <para>
-<style basestylename="Normal Text" align="center"/>
-<text>
-</text>
-</para>
-<para>
 <style basestylename="Normal Text"/>
 <text>
 </text>
 </para>
 <para>
 <style basestylename="Normal Text"/>
-<text>ACME Example Productions</text>
+<text>ACME Examples Productions</text>
 </para>
 <para>
 <style basestylename="Normal Text"/>
@@ -73,14 +63,69 @@
 </para>
 <para>
 <style basestylename="Normal Text"/>
-<text>Anytown, SOMESTATE 012345-1234</text>
+<text>Anytown, Planet Earth, 12345-7890</text>
+</para>
+<para>
+<style basestylename="Normal Text"/>
+<text>
+</text>
+</para>
+<para>
+<style basestylename="Normal Text"/>
+<text>
+</text>
+</para>
+<para>
+<style basestylename="Normal Text"/>
+<text>
+</text>
+</para>
+<para>
+<style basestylename="Transition"/>
+<text>Fade in:</text>
+</para>
+<para>
+<style basestylename="Scene Heading"/>
+<text>Int. Studio Apartment - night</text>
+</para>
+<para>
+<style basestylename="Action"/>
+<text>The AUTHOR sits at a desk.</text>
+</para>
+<para>
+<style basestylename="Character"/>
+<text>author</text>
+</para>
+<para>
+<style basestylename="Parenthetical"/>
+<text>anguished</text>
+</para>
+<para>
+<style basestylename="Dialogue"/>
+<text>Writers block again!</text>
+</para>
+<para>
+<style basestylename="Transition"/>
+<text>Dissolves to:</text>
+</para>
+<para>
+<style basestylename="Scene Heading"/>
+<text>
+</text>
+</para>
+<para>
+<style basestylename="Action"/>
+<text italic="1">
+</text>
 </para>
 </paragraphs>
 <spelling language="en_US"><user_dictionary/></spelling>
 <lists>
 <characters>
+<character name="author"/>
 </characters>
 <locations>
+<location name="Studio Apartment"/>
 </locations>
 <scene_intros>
 <scene_intro name="INT."/>
