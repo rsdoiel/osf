@@ -358,7 +358,7 @@ func (para *Para) String() string {
 				case TransitionType:
 					s = strings.ToUpper(s) + "\n"
 				case SingingType:
-					s = "~" + s + "~"
+					s = "~" + s
 				}
 			}
 			//FIXME: Apply formatting, FF and LF as needed
