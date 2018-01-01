@@ -483,7 +483,7 @@ func CleanupSelfClosingElements(src []byte) []byte {
 
 // ToXML takes a OpenScreenplay struct and renders XML
 func (document *OpenScreenplay) ToXML() ([]byte, error) {
-	src, err := xml.MarshalIndent(document, " ", "    ")
+	src, err := xml.MarshalIndent(document, "", "    ")
 	if err != nil {
 		return nil, err
 	}
