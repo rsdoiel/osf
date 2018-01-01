@@ -474,6 +474,10 @@ func CleanupSelfClosingElements(src []byte) []byte {
 	for _, elem := range []string{"info", "settings", "styles", "style", "mark", "text", "entry", "character", "location", "scene_time", "extension", "revision_color", "tag_category", "transition", "spelling", "user_dictionary", "paragraphs", "para", "locations"} {
 		src = bytes.Replace(src, []byte("></"+elem+">"), []byte("/>"), -1)
 	}
+	for _, elem := range []string{"titlepage"} {
+		src = bytes.Replace(src, []byte("<"+elem+"></"+elem+">"), []byte("<"+elem+"/>"), -1)
+	}
+
 	return src
 }
 
