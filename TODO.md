@@ -7,6 +7,8 @@
 ## Next
 
 + [ ] implement a txt2osf demonstration
++ [ ] review Text element, make sure I am mapping embedded newlines and formatting correctly
++ [ ] validate ToXML() after FromFountain() can be read by FadeIn
 
 ## Someday, Maybe
 
