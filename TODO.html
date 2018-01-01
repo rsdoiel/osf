@@ -13,26 +13,32 @@
 
 <h2>Bugs</h2>
 
-<ul>
-<li>[ ] String (Fountain style plain text) needs to be formatted correctly&hellip;</li>
-</ul>
-
 <h2>Next</h2>
 
 <ul>
-<li>[ ] Write osf.go, osf_test.go based on <a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> and in the mode of <a href="https://github.com/rsdoiel/fdx">fdx</a> package
-
-<ul>
-<li>[ ] Convert testdata/sample-0?.fdx to testdata/sample-0?.osf</li>
-</ul></li>
-<li>[ ] Write osf2txt</li>
+<li>[ ] implement a txt2osf demonstration</li>
 </ul>
 
 <h2>Someday, Maybe</h2>
 
+<ul>
+<li>[ ] Add support for Ron Severdia&rsquo;s Open Screenplay Format 2.1 spec
+
+<ul>
+<li>rename divergent structs&rsquo; xml defs with 20 and 21 suffix</li>
+<li>make sure they are all <sup>20</sup>&frasl;<sub>21</sub> structs are treaded as tag &ldquo;,omitempty&rdquo;</li>
+<li>duplicate String methods as needed</li>
+<li>Parse, ParseFile should work without sniffing using a single struct tree for 1.2, 2.0 or 2.1</li>
+</ul></li>
+</ul>
+
 <h2>Completed</h2>
 
 <ul>
+<li>[x] String (Fountain style plain text) needs to be formatted correctly&hellip;</li>
+<li>[x] Write osf.go, osf_test.go based on <a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> and in the mode of <a href="https://github.com/rsdoiel/fdx">fdx</a> package</li>
+<li>[x] Write osf2txt</li>
+<li>[x] Write fadein2osf</li>
 <li>[x] Write fadein2txt</li>
 <li>[x] self closing tags should be self closing</li>
 <li>[x] Support parsing .fadein files (i.e. unzip the Fade In file, then parse document.xml)</li>

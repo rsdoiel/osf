@@ -6,6 +6,7 @@
 
 ## Next
 
++ [ ] implement a txt2osf demonstration
 
 ## Someday, Maybe
 
