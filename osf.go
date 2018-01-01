@@ -89,7 +89,7 @@ type OpenScreenplay struct {
 	Type       string      `xml:"type,attr" json:"document_type"`
 	Version    string      `xml:"version,attr" json:"version"`
 	Info       *Info       `xml:"info" json:"info,omitempty"`
-	Settings   *Settings   `xml:"settings json:"settings""`
+	Settings   *Settings   `xml:"settings" json:"settings""`
 	Styles     *Styles     `xml:"styles,omitempty" json:"styles,omitempty"`
 	Paragraphs *Paragraphs `xml:"paragraphs" json:"paragraphs"`
 	Spelling   *Spelling   `xml:"spelling,omitempty" json:"spelling,omitempty"`
@@ -461,10 +461,27 @@ func ParseFile(fname string) (*OpenScreenplay, error) {
 	return Parse(src)
 }
 
+// NewOpenScreenplay20 creates a new OpenScreenplay document set to version 2.0
+func NewOpenScreenplay20() *OpenScreenplay {
+	doc := new(OpenScreenplay)
+	doc.Version = "20"
+	doc.Type = "Open Screenplay Format document"
+	return doc
+}
+
 // CleanupSelfClosingElements changes something like <styles></styles> to <styles/>
 func CleanupSelfClosingElements(src []byte) []byte {
 	for _, elem := range []string{"info", "settings", "styles", "style", "mark", "text", "entry", "character", "location", "scene_time", "extension", "revision_color", "tag_category", "transition", "spelling", "user_dictionary", "paragraphs", "para", "locations"} {
 		src = bytes.Replace(src, []byte("></"+elem+">"), []byte("/>"), -1)
 	}
 	return src
+}
+
+// ToXML takes a OpenScreenplay struct and renders XML
+func (document *OpenScreenplay) ToXML() ([]byte, error) {
+	src, err := xml.MarshalIndent(document, " ", "    ")
+	if err != nil {
+		return nil, err
+	}
+	return CleanupSelfClosingElements(src), nil
 }

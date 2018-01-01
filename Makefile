@@ -14,13 +14,16 @@ ifeq ($(OS), Windows)
 	EXT = .exe
 endif
 
-build: bin/osf2txt$(EXT) bin/fadein2osf$(EXT)
+build: bin/osf2txt$(EXT) bin/fadein2osf$(EXT) bin/txt2osf$(EXT)
 
 bin/osf2txt$(EXT): osf.go cmd/osf2txt/osf2txt.go 
 	go build -o bin/osf2txt$(EXT) cmd/osf2txt/osf2txt.go
 
 bin/fadein2osf$(EXT): osf.go cmd/fadein2osf/fadein2osf.go
 	go build -o bin/fadein2osf$(EXT) cmd/fadein2osf/fadein2osf.go
+
+bin/txt2osf$(EXT): osf.go cmd/txt2osf/txt2osf.go
+	go build -o bin/txt2osf$(EXT) cmd/txt2osf/txt2osf.go
 
 test:
 	go test

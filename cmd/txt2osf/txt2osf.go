@@ -1,5 +1,5 @@
 //
-// osf2txt converts an Open Screenplay Format 2.0 XML document into a plain text
+// txt2osf converts a plain text document into an Open Screenplay Format 2.0 XML document
 // suitable to read from the console.
 //
 // @author R. S. Doiel, <rsdoiel@gmail.com>
@@ -42,21 +42,22 @@ import (
 	"github.com/caltechlibrary/cli"
 
 	// My packages
+	"github.com/rsdoiel/fountain"
 	"github.com/rsdoiel/osf"
 )
 
 var (
-	description = `osf2txt is a command line program that reads an osf file
-and returns plain text
+	description = `txt2osf is a command line program that reads an plain text file
+and returns an OSF 2.0 text
 `
 
-	examples = `Convert *screenplay.osf* into *screenplay.txt*.
+	examples = `Convert *screenplay.txt* into *screenplay.osf*.
 
-    osf2txt -i screenplay.osf -o screenplay.txt
+    txt2osf -i screenplay.txt -o screenplay.osf
 
 Or alternatively
 
-    cat screenplay.osf | osf2txt > screenplay.txt
+    cat screenplay.txt | txt2osf > screenplay.osf
 `
 
 	// Standard Options
@@ -82,7 +83,7 @@ func main() {
 	app.BoolVar(&showLicense, "l,license", false, "display license")
 	app.BoolVar(&showVersion, "v,version", false, "display version")
 	app.BoolVar(&generateMarkdownDocs, "generate-markdown-docs", false, "generate Markdown documentation")
-	app.BoolVar(&newLine, "nl,newline", false, "add a trailing newline")
+	app.BoolVar(&newLine, "nl,newline", true, "add a trailing newline")
 	app.BoolVar(&quiet, "quiet", false, "suppress error messages")
 	app.StringVar(&inputFName, "i,input", "", "set the input filename")
 	app.StringVar(&outputFName, "o,output", "", "set the output filename")
@@ -122,10 +123,11 @@ func main() {
 
 	// Special case of input file is a .fadein, we use ParseFile...
 	var (
-		screenplay *osf.OpenScreenplay
+		screenplay *fountain.Fountain
+		document   *osf.OpenScreenplay
 	)
 	if path.Ext(inputFName) != "" {
-		screenplay, err = osf.ParseFile(inputFName)
+		screenplay, err = fountain.ParseFile(inputFName)
 		cli.ExitOnError(app.Eout, err, quiet)
 	} else {
 		app.In, err = cli.Open(inputFName, os.Stdin)
@@ -135,17 +137,20 @@ func main() {
 		src, err := ioutil.ReadAll(app.In)
 		cli.ExitOnError(app.Eout, err, quiet)
 		// Parse input
-		screenplay, err = osf.Parse(src)
+		screenplay, err = fountain.Parse(src)
 		cli.OnError(app.Eout, err, quiet)
 	}
 
-	// Create a string version of screenplay
-	s := screenplay.String()
+	// Create an OSF 2.0 version of screenplay
+	document = osf.NewOpenScreenplay20()
+	document.FromFountain(screenplay)
+	src, err := document.ToXML()
+	cli.OnError(app.Eout, err, quiet)
 
-	//and finally render the string version of the screenplay
+	// and finally render the string version of the screenplay
 	if newLine {
-		fmt.Fprintln(app.Out, s)
+		fmt.Fprintf(app.Out, "%s\n", src)
 	} else {
-		fmt.Fprint(app.Out, s)
+		fmt.Fprintf(app.Out, "%s", src)
 	}
 }
