@@ -12,6 +12,7 @@
 
 ## Someday, Maybe
 
++ [ ] Implement osf2html using John Augusts' [screenbox/scrippets](https://johnaugust.com/2008/scrippets-php-and-a-call-to-coders) suggestions
 + [ ] Add support for Ron Severdia's Open Screenplay Format 2.1 spec
     + rename divergent structs' xml defs with 20 and 21 suffix
     + make sure they are all 20/21 structs are treaded as tag ",omitempty" 
