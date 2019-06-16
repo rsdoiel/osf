@@ -41,7 +41,8 @@ import (
 )
 
 const (
-	Version   = "v0.0.0-dev"
+	Version = `v0.0.1`
+
 	DocString = `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>`
 
 	// Style

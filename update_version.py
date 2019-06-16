@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Project values
-PROJECT_GO = "stn.go"
+PROJECT_GO = "osf.go"
 CODEMETA_JSON = "codemeta.json"
 
 #

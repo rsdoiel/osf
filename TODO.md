@@ -1,3 +1,6 @@
+{
+    "title": "OSF, A Go package support Open Screenplay Format"
+}
 
 # Action Items
 
