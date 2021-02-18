@@ -34,4 +34,3 @@ Or alternatively
     cat screenplay.osf | osf2txt > screenplay.txt
 
 
-osf2txt v0.0.0-dev

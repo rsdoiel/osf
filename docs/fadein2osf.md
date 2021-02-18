@@ -34,4 +34,3 @@ Display converted OSF 2.0 XML to the console
 	fadein2osf -i screenplay.fadein
 
 
-fadein2osf v0.0.0-dev
