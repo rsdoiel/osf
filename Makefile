@@ -55,12 +55,20 @@ dist/windows-amd64:
 	cd dist && zip -r $(PROJECT)-$(VERSION)-windows-amd64.zip README.md LICENSE INSTSALL.md bin/*
 	rm -fR dist/bin
 
-dist/macosx-amd64:
+dist/macos-amd64:
 	mkdir -p dist/bin
 	env GOOS=darwin GOARCH=amd64 go build -o dist/bin/osf2txt cmd/osf2txt/osf2txt.go
 	env GOOS=darwin GOARCH=amd64 go build -o dist/bin/fadein2osf cmd/fadein2osf/fadein2osf.go
 	env GOOS=darwin GOARCH=amd64 go build -o dist/bin/txt2osf cmd/txt2osf/txt2osf.go
-	cd dist && zip -r $(PROJECT)-$(VERSION)-macosx-amd64.zip README.md LICENSE INSTSALL.md bin/*
+	cd dist && zip -r $(PROJECT)-$(VERSION)-macos-amd64.zip README.md LICENSE INSTSALL.md bin/*
+	rm -fR dist/bin
+
+dist/macos-arm64:
+	mkdir -p dist/bin
+	env GOOS=darwin GOARCH=arm64 go build -o dist/bin/osf2txt cmd/osf2txt/osf2txt.go
+	env GOOS=darwin GOARCH=arm64 go build -o dist/bin/fadein2osf cmd/fadein2osf/fadein2osf.go
+	env GOOS=darwin GOARCH=arm64 go build -o dist/bin/txt2osf cmd/txt2osf/txt2osf.go
+	cd dist && zip -r $(PROJECT)-$(VERSION)-macos-arm64.zip README.md LICENSE INSTSALL.md bin/*
 	rm -fR dist/bin
 
 dist/raspbian-arm7:
@@ -84,7 +92,7 @@ distribute_docs:
 	cp -v README.md dist/
 	cp -v LICENSE dist/
 
-release: distribute_docs dist/linux-amd64 dist/windows-amd64 dist/macosx-amd64 dist/raspbian-arm7 dist/linux-arm64
+release: distribute_docs dist/linux-amd64 dist/windows-amd64 dist/macos-amd64 dist/macos-arm64 dist/raspbian-arm7 dist/linux-arm64
 
 clean: 
 	if [ -d bin ]; then rm -fR bin; fi
