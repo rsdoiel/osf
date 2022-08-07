@@ -15,5 +15,5 @@ Two package will include several demonstration command line programs
 text in a [Fountain](https://fountain.io) like format, [txt2osf](docs/txt2osf.html) 
 which takes a plain text file and attempts to render an OSF 2.0 document 
 and finally [fadein2osf](docs/fadein2osf) which will read in a Fade In file 
-and write out plain text in Fountain format.
+and write out Open Screenplay Format.
 
