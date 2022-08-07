@@ -6,7 +6,7 @@
     "codeRepository": "https://github.com/rsdoiel/osf",
     "issueTracker": "https://github.com/rsdoiel/osf/issues",
     "license": "https://rsdoiel.github.io/osf/license.html",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": [
         {
             "@type": "Person",
