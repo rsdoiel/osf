@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="EN">
+  <title>R. S. Doiel, Software Engineer/Analyst - txt2osf.1</title>
+
+  <link rel="stylesheet" type="text/css"  href="/printfonts/print.css" media="print" />
+  <link rel="stylesheet" type="text/css"  href="/webfonts/fonts.css" media="screen" />
+  <link rel="stylesheet" type="text/css"  href="/css/site.css" media="screen" />
+  <link title="RSS feed for rsdoiel's blog" rel="alternate" type="application/rss+xml" href="https://rsdoiel.github.io/rss.xml" />
+  <link title="markdown source for page" rel="alternative" type="application/markdown" href="txt2osf.1.md">
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="./">README</a></li>
+<li><a href="user-manual.html">User Manual</a></li>
+<li><a href="license.html">LICENSE</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="https://github.com/rsdoiel/osf">GitHub</a></li>
+</ul>
+</nav>
+
+<section>
+<!--  <h1>txt2osf.1</h1> -->
+
+<p>USAGE: txt2osf [OPTIONS]</p>
+<p>DESCRIPTION</p>
+<p>txt2osf is a command line program that reads an plain text file and returns an OSF 2.0 text</p>
+<p>OPTIONS</p>
+<pre><code>-generate-manpage    generate man page
+-generate-markdown   generate Markdown documentation
+-h, -help            display help
+-i, -input           set the input filename
+-l, -license         display license
+-nl, -newline        add a trailing newline
+-o, -output          set the output filename
+-quiet               suppress error messages
+-v, -version         display version</code></pre>
+<p>EXAMPLES</p>
+<p>Convert <em>screenplay.txt</em> into <em>screenplay.osf</em>.</p>
+<pre><code>txt2osf -i screenplay.txt -o screenplay.osf</code></pre>
+<p>Or alternatively</p>
+<pre><code>cat screenplay.txt | txt2osf &gt; screenplay.osf</code></pre>
+<p>txt2osf 0.0.4</p>
+</section>
+
+<footer>
+</footer>
+
+</body>
+</html>
