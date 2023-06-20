@@ -1,17 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: osf
+type: software
+title: "osf"
+abstract: "A library and command line programs for working with FadeIn and Open Screenplay Format (osf) files."
 authors:
   - family-names: Doiel
     given-names: Robert
-    orcid: https://orcid.org/0000-0003-0900-6903
-abstract: A library and command line programs for working with FadeIn and Open Screenplay Format (osf) files.
+    orcid: "https://orcid.org/0000-0003-0900-6903"
+
+maintainers:
+  - family-names: 
+    given-names: 
+    orcid: ""
+
 repository-code: "https://github.com/rsdoiel/osf"
-type: software
 version: 0.0.4
 license-url: "https://rsdoiel.github.io/osf/license.html"
-keywords:
-  - Github
-  - text markup
-  - screen play
-date-released: 2022-10-23
+keywords: [ "Github", "text markup", "screen play" ]
