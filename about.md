@@ -12,7 +12,7 @@ authors:
 repository-code: "https://github.com/rsdoiel/osf"
 version: 0.0.4
 license-url: "https://rsdoiel.github.io/osf/license.html"
-keywords: [ "Github", "text markup", "screen play" ]
+keywords: [ "GitHub", "text markup", "screen play" ]
 
 ---
 

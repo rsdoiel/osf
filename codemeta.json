@@ -6,7 +6,11 @@
     "codeRepository": "https://github.com/rsdoiel/osf",
     "issueTracker": "https://github.com/rsdoiel/osf/issues",
     "license": "https://rsdoiel.github.io/osf/license.html",
-    "version": "0.0.4",
+    "version": "0.0.5",
+    "createdDate": "2017-12-22",
+    "releaseDate": "2022-08-07",
+    "modifiedDate": "2024-03-09",
+    "releaseNotes": "Updated to Go 1.22, added YAML annotations",
     "author": [
         {
             "@type": "Person",
@@ -18,12 +22,12 @@
     ],
     "developmentStatus": "inactive",
     "keywords": [
-        "Github",
+        "GitHub",
         "text markup",
         "screen play"
     ],
     "maintainer": "https://orcid.org/0000-0003-0900-6903",
     "programmingLanguage": [
-        "Go"
+        "Go >= 1.22"
     ]
 }

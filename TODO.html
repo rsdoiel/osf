@@ -32,6 +32,10 @@
 <h2 id="next">Next</h2>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
+Update code to Go 1.22</li>
+<li><input type="checkbox" disabled="" />
+Remove dependency on <code>github.com/caltechlibrary/cli</code></li>
+<li><input type="checkbox" disabled="" />
 implement a txt2osf demonstration</li>
 <li><input type="checkbox" disabled="" />
 review Text element, make sure I am mapping embedded newlines and formatting correctly</li>
@@ -45,7 +49,7 @@ write and osf2html using <a href="https://fountain.io/scrippets">scrippets</a> a
 <li><input type="checkbox" disabled="" />
 add support for Ron Severdia’s Open Screenplay Format 2.1 spec<ul>
 <li>rename divergent structs’ xml defs with 20 and 21 suffix</li>
-<li>make sure they are all 20/21 structs are treaded as tag “,omitempty”</li>
+<li>make sure they are all 20/21 structs are treated as tag “,omitempty”</li>
 <li>duplicate String methods as needed</li>
 <li>Parse, ParseFile should work without sniffing using a single struct tree for 1.2, 2.0 or 2.1</li>
 </ul></li>
@@ -72,11 +76,11 @@ Add ParseFile() to osf.go, if file extension is “.fadein” then it should han
 <h3 id="reference-links">Reference links</h3>
 <ul>
 <li><a href="https://fountain.io">Fountain</a></li>
-<li><a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> (the one targetted by osf.go)</li>
+<li><a href="https://sourceforge.net/projects/openscrfmt/">Open Screenplay Format 2.0</a> (the one targeted by osf.go)</li>
 <li><a href="https://github.com/severdia/Open-Screenplay-Format">Open Screenplay Format 2.1</a></li>
 <li><a href="https://www.fadeinpro.com">Fade In</a></li>
 <li><a href="http://www.kenttessman.com/2012/02/open-screenplay-format/">Open Screenplay Format by Kent Tessman</a></li>
-<li><a href="https://github.com/azcoppen/screenplay-parser">screenplay-parser</a> - a PHP repo with a really nice README.md discussing format and convertion issues and challenges</li>
+<li><a href="https://github.com/azcoppen/screenplay-parser">screenplay-parser</a> - a PHP repo with a really nice README.md discussing format and conversion issues and challenges</li>
 </ul>
 </section>
 

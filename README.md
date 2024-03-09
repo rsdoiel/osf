@@ -7,7 +7,7 @@ OSF
 A Go package support Open Screenplay Format
 -------------------------------------------
 
-Experimental golang package for working with Open Screenplay Format 2.0.
+Experimental Golang package for working with Open Screenplay Format 2.0.
 Open Screenplay Format is an open XML format for screenplays and the
 native format (when zipped) for [Fade In](https://www.fadeinpro.com).
 Two package will include several demonstration command line programs 
