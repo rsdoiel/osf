@@ -10,7 +10,7 @@ authors:
     orcid: "https://orcid.org/0000-0003-0900-6903"
 
 repository-code: "https://github.com/rsdoiel/osf"
-version: 0.0.4
+version: 0.0.5
 license-url: "https://rsdoiel.github.io/osf/license.html"
 keywords: [ "GitHub", "text markup", "screen play" ]
 
@@ -19,7 +19,7 @@ keywords: [ "GitHub", "text markup", "screen play" ]
 About this software
 ===================
 
-## osf 0.0.4
+## osf 0.0.5
 
 ### Authors
 
@@ -39,6 +39,6 @@ A library and command line programs for working with FadeIn and Open Screenplay 
 
 ### Programming languages
 
-- Go
+- Go &gt;= 1.22
 
 
