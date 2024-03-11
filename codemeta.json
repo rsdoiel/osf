@@ -6,11 +6,11 @@
     "codeRepository": "https://github.com/rsdoiel/osf",
     "issueTracker": "https://github.com/rsdoiel/osf/issues",
     "license": "https://rsdoiel.github.io/osf/license.html",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "createdDate": "2017-12-22",
     "releaseDate": "2022-08-07",
-    "modifiedDate": "2024-03-09",
-    "releaseNotes": "Updated to Go 1.22, added YAML annotations",
+    "modifiedDate": "2024-03-11",
+    "releaseNotes": "Updated to Go 1.22, added YAML annotations, fixed bug in YAML mapping",
     "author": [
         {
             "@type": "Person",

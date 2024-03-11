@@ -112,7 +112,7 @@ type Settings struct {
 	PageHeight         string   `xml:"page_height,attr,omitempty" json:"page_height,omitempty" yaml:"page_height,omitempty"`
 	MarginTop          string   `xml:"margin_top,attr,omitempty" json:"margin_top,omitempty" yaml:"margin_top,omitempty"`
 	MarginBottom       string   `xml:"margin_bottom,attr,omitempty" json:"margin_bottom,omitempty" yaml:"margin_bottom,omitempty"`
-	MarginLeft         string   `xml:"margin_left,attr,omitempty" json:"margin_left,omitempty" yaml:"margin_left,omitemtpy"`
+	MarginLeft         string   `xml:"margin_left,attr,omitempty" json:"margin_left,omitempty" yaml:"margin_left,omitempty"`
 	MarginRight        string   `xml:"margin_right,attr,omitempty" json:"margin_right,omitempty" yaml:"margin_right,omitempty"`
 	NormalLinesPerInch string   `xml:"normal_linesperinch,attr,omitempty" json:"normal_lines_per_inch,omitempty" yaml:"normal_lines_per_inch,ommitempty"`
 	DialogueContinues  string   `xml:"dialogue_continues,attr,omitempty" json:"dialog_continues,omitempty" yaml:"dialog_continues,omitempty"`

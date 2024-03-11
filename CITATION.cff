@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
 title: "osf"
-abstract: "A library and command line programs for working with FadeIn and Open Screenplay Format (osf) files."
+abstract: "A library and command line programs for working with FadeIn
+and Open Screenplay Format (osf) files."
 authors:
   - family-names: Doiel
     given-names: Robert
@@ -14,6 +15,6 @@ maintainers:
     orcid: ""
 
 repository-code: "https://github.com/rsdoiel/osf"
-version: 0.0.5
+version: 0.0.6
 license-url: "https://rsdoiel.github.io/osf/license.html"
 keywords: [ "GitHub", "text markup", "screen play" ]
