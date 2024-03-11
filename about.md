@@ -11,7 +11,7 @@ authors:
     orcid: "https://orcid.org/0000-0003-0900-6903"
 
 repository-code: "https://github.com/rsdoiel/osf"
-version: 0.0.6
+version: 0.0.7
 license-url: "https://rsdoiel.github.io/osf/license.html"
 keywords: [ "GitHub", "text markup", "screen play" ]
 
@@ -20,7 +20,7 @@ keywords: [ "GitHub", "text markup", "screen play" ]
 About this software
 ===================
 
-## osf 0.0.6
+## osf 0.0.7
 
 ### Authors
 
