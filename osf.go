@@ -114,7 +114,7 @@ type Settings struct {
 	MarginBottom       string   `xml:"margin_bottom,attr,omitempty" json:"margin_bottom,omitempty" yaml:"margin_bottom,omitempty"`
 	MarginLeft         string   `xml:"margin_left,attr,omitempty" json:"margin_left,omitempty" yaml:"margin_left,omitempty"`
 	MarginRight        string   `xml:"margin_right,attr,omitempty" json:"margin_right,omitempty" yaml:"margin_right,omitempty"`
-	NormalLinesPerInch string   `xml:"normal_linesperinch,attr,omitempty" json:"normal_lines_per_inch,omitempty" yaml:"normal_lines_per_inch,ommitempty"`
+	NormalLinesPerInch string   `xml:"normal_linesperinch,attr,omitempty" json:"normal_lines_per_inch,omitempty" yaml:"normal_lines_per_inch,omitempty"`
 	DialogueContinues  string   `xml:"dialogue_continues,attr,omitempty" json:"dialog_continues,omitempty" yaml:"dialog_continues,omitempty"`
 	ContText           string   `xml:"cont_text,attr,omitempty" json:"cont_text,omitempty" yaml:"cont_text,omitempty"`
 	MoreText           string   `xml:"more_text,attr,omitempty" json:"more_text,omitempty" yaml:"more_text,omitempty"`
@@ -209,7 +209,7 @@ type Entry struct {
 type Lists struct {
 	XMLName        xml.Name        `xml:"lists" json:"lists" yaml:"lists"`
 	Characters     *Characters     `xml:"characters,omitempty" json:"characters,omitempty" yaml:"characters,omitempty"`
-	Locations      *Locations      `xml:"locations,omitempty" json:"locations,omitempty" yaml:"locations,omitempy"`
+	Locations      *Locations      `xml:"locations,omitempty" json:"locations,omitempty" yaml:"locations,omitempty"`
 	SceneIntros    *SceneIntros    `xml:"scene_intros,omitempty" json:"scene_intros,omitempty" yaml:"scene_intros,omitempty"`
 	SceneTimes     *SceneTimes     `xml:"scene_times,omitempty" json:"scene_times,omitempty" yaml:"scene_times,omitempty"`
 	Extensions     *Extensions     `xml:"extensions,omitempty" json:"extensions,omitempty" yaml:"extensions,omitempty"`

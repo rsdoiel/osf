@@ -30,9 +30,14 @@
 package osf
 
 import (
+	"bytes"
 	"fmt"
 	"os"
+	"path"
 	"testing"
+
+	// 3rd Party packagess
+	"gopkg.in/yaml.v3"
 )
 
 var (
@@ -74,6 +79,20 @@ func TestToString(t *testing.T) {
 	result = doc.String()
 	if expected != result {
 		t.Errorf("expected %q, got %q for %T", expected, result, doc)
+	}
+}
+
+func TestToYAML(t *testing.T) {
+	screenplay, err := ParseFile(path.Join("testdata", "Screenplay_Sample.osf"))
+	if err != nil {
+		t.Error(err)
+	}
+	buf := bytes.NewBuffer([]byte{})
+	encoder := yaml.NewEncoder(buf)
+	encoder.SetIndent(2)
+	err = encoder.Encode(screenplay)
+	if err != nil {
+		t.Error(err)
 	}
 }
 
