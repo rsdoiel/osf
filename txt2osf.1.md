@@ -8,15 +8,15 @@ and returns an OSF 2.0 text
 
 OPTIONS
 
-    -generate-manpage   generate man page
-    -generate-markdown  generate Markdown documentation
-    -h, -help           display help
-    -i, -input          set the input filename
-    -l, -license        display license
-    -nl, -newline       add a trailing newline
-    -o, -output         set the output filename
-    -quiet              suppress error messages
-    -v, -version        display version
+    -generate-manpage    generate man page
+    -generate-markdown   generate Markdown documentation
+    -h, -help            display help
+    -i, -input           set the input filename
+    -l, -license         display license
+    -nl, -newline        add a trailing newline
+    -o, -output          set the output filename
+    -quiet               suppress error messages
+    -v, -version         display version
 
 
 EXAMPLES
@@ -29,4 +29,4 @@ Or alternatively
 
     cat screenplay.txt | txt2osf > screenplay.osf
 
-txt2osf 0.0.7
+txt2osf 0.0.8

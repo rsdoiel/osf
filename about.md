@@ -11,8 +11,8 @@ authors:
     orcid: "https://orcid.org/0000-0003-0900-6903"
 
 repository-code: "https://github.com/rsdoiel/osf"
-version: 0.0.7
-license-url: "https://rsdoiel.github.io/osf/license.html"
+version: 0.0.8
+license-url: "https://spdx.org/licenses/AGPL-3.0-or-later"
 keywords: [ "GitHub", "text markup", "screen play" ]
 
 ---
@@ -20,7 +20,7 @@ keywords: [ "GitHub", "text markup", "screen play" ]
 About this software
 ===================
 
-## osf 0.0.7
+## osf 0.0.8
 
 ### Authors
 
@@ -34,7 +34,7 @@ About this software
 A library and command line programs for working with FadeIn and Open
 Screenplay Format (osf) files.
 
-- License: <https://rsdoiel.github.io/osf/license.html>
+- License: <https://spdx.org/licenses/AGPL-3.0-or-later>
 - GitHub: <https://github.com/rsdoiel/osf>
 - Issues: <https://github.com/rsdoiel/osf/issues>
 

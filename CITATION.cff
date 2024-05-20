@@ -15,6 +15,6 @@ maintainers:
     orcid: ""
 
 repository-code: "https://github.com/rsdoiel/osf"
-version: 0.0.7
-license-url: "https://rsdoiel.github.io/osf/license.html"
+version: 0.0.8
+license-url: "https://spdx.org/licenses/AGPL-3.0-or-later"
 keywords: [ "GitHub", "text markup", "screen play" ]
