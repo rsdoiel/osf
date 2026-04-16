@@ -23,3 +23,6 @@ bin/
 dist/
 man/
 *.bak
+.env
+*.env
+.harvey
