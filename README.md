@@ -1,19 +1,36 @@
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 
+# osf
 
-OSF
-===
+_osf_ is a Go package and three small command line programs for working with Open Screenplay Format (OSF) 2.0. OSF is an open XML format for screenplays and, zipped, the native format of [Fade In](https://www.fadeinpro.com). The package parses an OSF document, writes it back as XML, renders it as Fountain-like plain text, and builds one from a [Fountain](https://fountain.io) document parsed by the [fountain](https://github.com/rsdoiel/fountain) package.
 
-A Go package support Open Screenplay Format
--------------------------------------------
+OSF keeps no number for an individual scene (numbering is a document setting, `scene_numbering`), so a Fountain scene number is not carried into OSF. A Fountain boneyard (`/* ... */`) becomes an ordinary paragraph, so it shows in Fade In.
 
-Experimental Golang package for working with Open Screenplay Format 2.0.
-Open Screenplay Format is an open XML format for screenplays and the
-native format (when zipped) for [Fade In](https://www.fadeinpro.com).
-Two package will include several demonstration command line programs 
-[osf2txt](docs/osf2txt.html) which will read a osf file and render plain 
-text in a [Fountain](https://fountain.io) like format, [txt2osf](docs/txt2osf.html) 
-which takes a plain text file and attempts to render an OSF 2.0 document 
-and finally [fadein2osf](docs/fadein2osf) which will read in a Fade In file 
-and write out Open Screenplay Format.
+## The programs
 
+[osf2txt](osf2txt.1.md)
+: reads an OSF file and writes plain text in a Fountain-like format.
+
+[txt2osf](txt2osf.1.md)
+: reads a plain text file and renders an OSF 2.0 document.
+
+[fadein2osf](fadein2osf.1.md)
+: reads a Fade In (`.fadein`) file and writes Open Screenplay Format.
+
+## Install
+
+Get a release from [GitHub](https://github.com/rsdoiel/osf/releases), or see [INSTALL.md](INSTALL.md), which also covers installing from source. To use the package in a Go program:
+
+```shell
+go get github.com/rsdoiel/osf
+```
+
+## Build and test
+
+You need Go 1.26.4 or later. Pandoc and GNU Make are only needed for the man pages and the website, and `cmt` (CMTools) only to regenerate `version.go`, `about.md` and `CITATION.cff` from `codemeta.json`.
+
+```shell
+make          # build the programs into bin/ and the man pages into man/
+make test     # go test ./...
+make check    # gofmt -l and go vet; rewrites nothing
+```
