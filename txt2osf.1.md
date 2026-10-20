@@ -29,4 +29,4 @@ Or alternatively
 
     cat screenplay.txt | txt2osf > screenplay.osf
 
-txt2osf 0.0.8
+txt2osf 0.0.9
