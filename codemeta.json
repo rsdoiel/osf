@@ -7,7 +7,7 @@
   "issueTracker": "https://github.com/rsdoiel/osf/issues",
   "license": "https://www.gnu.org/licenses/agpl-3.0.txt",
   "version": "0.0.9",
-  "developmentStatus": "inactive",
+  "developmentStatus": "active",
   "releaseNotes": "Requires fountain v1.0.3 (scene numbers and boneyards are typed there); the go directive is now 1.26.4. No change to the OSF conversion. OSF keeps no per-scene number, so a Fountain scene number is not carried into OSF, and a boneyard stays a visible paragraph.",
   "dateCreated": "2017-12-22",
   "dateModified": "2026-10-20",
