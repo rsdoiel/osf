@@ -5,19 +5,18 @@
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
+<a href="#main-content" class="visually-hidden">skip to main content</a>
 <nav>
 <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="index.html">README</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="LICENSE">LICENSE</a></li>
     <li><a href="INSTALL.html">INSTALL</a></li>
     <li><a href="user_manual.html">User Manual</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="search.html">Search</a></li>
-    <li><a href="https://github.com/rsdoiel/osf">GitHub</a></li>
+    <li><a href="https://github.com/rsdoiel/osf">Code Repository</a></li>
 </ul>
 </nav>
-<section>
+<section id="main-content">
 <p>USAGE: txt2osf [OPTIONS]</p>
 <p>DESCRIPTION</p>
 <p>txt2osf is a command line program that reads an plain text file and
@@ -37,7 +36,10 @@ returns an OSF 2.0 text</p>
 <pre><code>txt2osf -i screenplay.txt -o screenplay.osf</code></pre>
 <p>Or alternatively</p>
 <pre><code>cat screenplay.txt | txt2osf &gt; screenplay.osf</code></pre>
-<p>txt2osf 0.0.8</p>
+<p>txt2osf 0.0.9</p>
 </section>
+<footer>
+<p>osf</p>
+</footer>
 </body>
 </html>

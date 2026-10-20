@@ -5,46 +5,62 @@
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
+<a href="#main-content" class="visually-hidden">skip to main content</a>
 <nav>
 <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="index.html">README</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="LICENSE">LICENSE</a></li>
     <li><a href="INSTALL.html">INSTALL</a></li>
     <li><a href="user_manual.html">User Manual</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="search.html">Search</a></li>
-    <li><a href="https://github.com/rsdoiel/osf">GitHub</a></li>
+    <li><a href="https://github.com/rsdoiel/osf">Code Repository</a></li>
 </ul>
 </nav>
-<section>
+<section id="main-content">
 <h1 id="about-this-software">About this software</h1>
-<h2 id="osf-0.0.8">osf 0.0.8</h2>
-<p>Updated to Go 1.22, added YAML annotations, fixed bug in YAML
-mapping, updated license to AGPL 3 or later</p>
-<h3 id="authors">Authors</h3>
+<h2 id="osf-0.0.9">osf 0.0.9</h2>
+<p>Requires fountain v1.0.3 (scene numbers and boneyards are typed
+there); the go directive is now 1.26.4. No change to the OSF conversion.
+OSF keeps no per-scene number, so a Fountain scene number is not carried
+into OSF, and a boneyard stays a visible paragraph.</p>
+<h2 id="authors">Authors</h2>
 <ul>
-<li>Robert Doiel, <a href="https://orcid.org/0000-0003-0900-6903"
-class="uri">https://orcid.org/0000-0003-0900-6903</a></li>
+<li><a href="https://orcid.org/0000-0003-0900-6903">R. S. Doiel</a></li>
 </ul>
-<h3 id="maintainers">Maintainers</h3>
+<h2 id="maintainers">Maintainers</h2>
 <ul>
-<li>https://orcid.org/0000-0003-0900-6903</li>
+<li><a href="https://orcid.org/0000-0003-0900-6903">R. S. Doiel</a></li>
 </ul>
 <p>A library and command line programs for working with FadeIn and Open
 Screenplay Format (osf) files.</p>
 <ul>
-<li>License: <a href="https://spdx.org/licenses/AGPL-3.0-or-later"
-class="uri">https://spdx.org/licenses/AGPL-3.0-or-later</a></li>
-<li>GitHub: <a href="https://github.com/rsdoiel/osf"
-class="uri">https://github.com/rsdoiel/osf</a></li>
-<li>Issues: <a href="https://github.com/rsdoiel/osf/issues"
-class="uri">https://github.com/rsdoiel/osf/issues</a></li>
-</ul>
-<h3 id="programming-languages">Programming languages</h3>
+<li><a href="https://www.gnu.org/licenses/agpl-3.0.txt">License</a></li>
+<li><a href="https://github.com/rsdoiel/osf">Code Repository</a>
 <ul>
-<li>Go &gt;= 1.22</li>
+<li><a href="https://github.com/rsdoiel/osf/issues">Issue
+Tracker</a></li>
+</ul></li>
+</ul>
+<h2 id="programming-languages">Programming languages</h2>
+<ul>
+<li>Go &gt;= 1.26.4</li>
+</ul>
+<h2 id="software-requirements">Software Requirements</h2>
+<ul>
+<li>Go &gt;= 1.26.4</li>
+<li>github.com/rsdoiel/fountain &gt;= 1.0.3</li>
+<li>gopkg.in/yaml.v3 &gt;= 3.0.1</li>
+<li>github.com/caltechlibrary/cli &gt;= 0.0.18</li>
+</ul>
+<h2 id="software-suggestions">Software Suggestions</h2>
+<ul>
+<li>CMTools &gt;= 0.0.45b</li>
+<li>Pandoc &gt;= 3.9</li>
+<li>GNU Make &gt;= 3</li>
 </ul>
 </section>
+<footer>
+<p>osf</p>
+</footer>
 </body>
 </html>
