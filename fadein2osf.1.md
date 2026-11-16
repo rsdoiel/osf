@@ -1,32 +1,72 @@
+%fadein2osf(1) user manual | version 0.0.9 9812fdf
+% R. S. Doiel
+% 2026-10-20
 
-USAGE: fadein2osf [OPTIONS]
+# NAME
 
-DESCRIPTION
+fadein2osf — convert a Fade In file to Open Screenplay Format
 
-fadein2osf is a command line program that reads an ".fadein" file
-and write outs a OSF 2.0 XML.
+# SYNOPSIS
 
-OPTIONS
+fadein2osf [OPTIONS] INPUT_FILENAME [OUTPUT_FILENAME]
 
-    -generate-manpage    generate man page
-    -generate-markdown   generate Markdown documentation
-    -h, -help            display help
-    -i, -input           set the input filename
-    -l, -license         display license
-    -nl, -newline        add a trailing newline
-    -o, -output          set the output filename
-    -quiet               suppress error messages
-    -v, -version         display version
+# DESCRIPTION
 
+fadein2osf reads a Fade In (.fadein) file and writes an Open Screenplay Format (OSF) 2.0 document. A Fade In file is a zip archive, so the input must be a named file and cannot be read from standard input.
 
-EXAMPLES
+# OPTIONS
 
-Convert *screenplay.fadein* into *screenplay.osf*.
+-h, -help
+: display this help page
+
+-l, -license
+: display the license
+
+-v, -version
+: display the version
+
+-i, -input FILENAME
+: read from FILENAME; the default, and -, is standard input
+
+-o, -output FILENAME
+: write to FILENAME; the default, and -, is standard output
+
+-nl, -newline
+: add a trailing newline (the default is none)
+
+-quiet
+: suppress error messages; the exit status still says what happened
+
+The input and output may also be given as the first and second argument.
+
+# EXIT STATUS
+
+0
+: success
+
+2
+: bad command line: an unknown option, a surplus argument, a missing input file name
+
+65
+: the input is not valid Fade In archive
+
+66
+: the input file does not exist
+
+73
+: the output file cannot be created
+
+74
+: reading or writing failed part way
+
+77
+: the operating system refused access to a file
+
+# EXAMPLES
 
     fadein2osf -i screenplay.fadein -o screenplay.osf
 
-Display converted OSF 2.0 XML to the console
+Display the converted OSF 2.0 XML on the console
 
-	fadein2osf -i screenplay.fadein
+    fadein2osf -i screenplay.fadein
 
-fadein2osf 0.0.9

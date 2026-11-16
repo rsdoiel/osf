@@ -1,0 +1,106 @@
+<document type="Open Screenplay Format document" version="20">
+    <info title=" TITLE" written_by=" Author&#39;s Name" copyright=" Copyright (c) 2018" contact="&#xA;&#x9;Contact&#xA;&#x9;information&#xA;&#xA;" drafts="&#xA;&#x9;Draft&#xA;&#x9;information"/>
+    <paragraphs>
+        <para bookmark="Action">
+            <text>!FADE IN:</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Scene Heading">
+            <text>EXT. INDUSTRIAL PARK - DAY</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>A low slung industrial building in an industrial center. The last car leaves the lot. Parking lot lights switch off.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>CROSS FADE TO:</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Scene Heading">
+            <text>INT. OFFICE - NIGHT</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>A PROGRAMMER stares at the screen.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Character">
+            <text>PROGRAMMER</text>
+        </para>
+        <para bookmark="Parenthetical">
+            <text>(drowsy)</text>
+        </para>
+        <para bookmark="Dialogue">
+            <text>What algorithm is this?</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>CUT TO:</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Scene Heading">
+            <text>EXT. COURTYARD - DAY</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>A programmer lounges by a fountain.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Character">
+            <text>PROGRAMMER</text>
+        </para>
+        <para bookmark="Parenthetical">
+            <text>(drowsy)</text>
+        </para>
+        <para bookmark="Dialogue">
+            <text>This is what I remember.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Transition">
+            <text>&gt; FADE TO BLACK.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+    </paragraphs>
+    <titlepage>
+        <para bookmark="Title">
+            <text> TITLE</text>
+        </para>
+        <para bookmark="Author">
+            <text> Author&#39;s Name</text>
+        </para>
+        <para bookmark="Drafts">
+            <text>&#xA;&#x9;Draft&#xA;&#x9;information</text>
+        </para>
+        <para bookmark="Copyright">
+            <text> Copyright (c) 2018</text>
+        </para>
+        <para bookmark="Contact">
+            <text>&#xA;&#x9;Contact&#xA;&#x9;information&#xA;&#xA;</text>
+        </para>
+    </titlepage>
+</document>

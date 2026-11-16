@@ -10,7 +10,7 @@
 ## Next
 
 - [ ] Update code to Go 1.22
-- [ ] Remove dependency on `github.com/caltechlibrary/cli`
+- [x] Remove dependency on `github.com/caltechlibrary/cli`
 - [ ] implement a txt2osf demonstration
 - [ ] review Text element, make sure I am mapping embedded newlines and formatting correctly
 - [ ] validate ToXML() after FromFountain() can be read by FadeIn
@@ -50,7 +50,7 @@
 To match the workspace standard (knowledge and opml are the models; Go 1.27.3 across repositories). Do one repository at a time; run the tests and `make -n release` after each step.
 
 - [x] Go 1.27.3: change `go 1.26.4` in go.mod, the `Go >=` lines in codemeta.json, README.md and INSTALL.md; run `go mod tidy`, `go vet ./...` and the tests.
-- [ ] Replace `github.com/caltechlibrary/cli` with the standard library `flag`, with `-h/-l/-v` and long spellings (Go CLI conventions).
+- [x] Replace `github.com/caltechlibrary/cli` with the standard library `flag`, with `-h/-l/-v` and long spellings (Go CLI conventions).
 - [x] Makefile: add `check-go-version` (go.mod, codemeta.json and the Go in use agree); `check-release` calls it.
 - [x] Drop the armv7l target and 32-bit Pi wording (dropped 2026-10-27).
 - [x] release.ps1: take knowledge's (existing-draft check, checksums).

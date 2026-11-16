@@ -65,7 +65,6 @@ A library and command line programs for working with FadeIn and Open Screenplay 
 - Go >= 1.27.3
 - github.com/rsdoiel/fountain >= 1.0.3
 - gopkg.in/yaml.v3 >= 3.0.1
-- github.com/caltechlibrary/cli >= 0.0.18
 
 
 ## Software Suggestions

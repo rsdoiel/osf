@@ -1,0 +1,312 @@
+ <document type="Open Screenplay Format document" version="30">
+     <info uuid="C6BD34F5-56DF-4B3C-A617-8CC73AE27A66" pagecount="1"/>
+     <settings page_width="2159" page_height="2794" margin_top="317" margin_bottom="220" margin_left="317" margin_right="317" normal_linesperinch="6.0" dialogue_continues="true" cont_text="(cont&#39;d)" more_text="(MORE)" continued_text="CONTINUED" omitted_text="OMITTED" pagenumber_start="1" revision="0" show_revisions="true" scene_numbering="false" scenes_locked="false" pages_locked="false"/>
+     <styles/>
+     <paragraphs>
+         <para>
+             <style basestylename="Action"/>
+             <text>FADE IN:</text>
+         </para>
+         <para>
+             <style basestylename="Scene Heading"/>
+             <text>EXT. LIBRARY - DAY</text>
+         </para>
+         <para>
+             <style basestylename="Action"/>
+             <text>A PROGRAMMER typing at an old laptop</text>
+         </para>
+         <para>
+             <style basestylename="Character"/>
+             <text>PROGRAMMER</text>
+         </para>
+         <para>
+             <style basestylename="Parenthetical"/>
+             <text>excited</text>
+         </para>
+         <para>
+             <style basestylename="Dialogue"/>
+             <text>Eureka!</text>
+         </para>
+         <para>
+             <style basestylename="Transition"/>
+             <text>FADE TO BLACK.</text>
+         </para>
+         <para>
+             <style name="Normal Text" label="Normal Text" font="Courier" size="12"/>
+             <text/>
+         </para>
+     </paragraphs>
+     <spelling language="en_US">
+         <user_dictionary/>
+     </spelling>
+     <lists>
+         <characters>
+             <character name="PROGRAMMER"/>
+         </characters>
+         <locations>
+             <location name="LIBRARY"/>
+         </locations>
+         <scene_intros>
+             <scene_intro name="INT."></scene_intro>
+             <scene_intro name="EXT."></scene_intro>
+             <scene_intro name="INT./EXT."></scene_intro>
+         </scene_intros>
+         <scene_times>
+             <scene_time name="DAY"/>
+             <scene_time name="NIGHT"/>
+             <scene_time name="MORNING"/>
+             <scene_time name="AFTERNOON"/>
+             <scene_time name="EVENING"/>
+             <scene_time name="LATER"/>
+             <scene_time name="MOMENTS LATER"/>
+             <scene_time name="CONTINUOUS"/>
+             <scene_time name="THE NEXT DAY"/>
+         </scene_times>
+         <extensions>
+             <extension name="(V.O.)"/>
+             <extension name="(O.S.)"/>
+             <extension name="(O.C.)"/>
+             <extension name="(SUBTITLE)"/>
+         </extensions>
+         <transitions>
+             <transition name="CUT TO:"/>
+             <transition name="FADE IN:"/>
+             <transition name="FADE OUT"/>
+             <transition name="FADE TO:"/>
+             <transition name="DISSOLVE TO:"/>
+             <transition name="BACK TO:"/>
+             <transition name="MATCH CUT TO:"/>
+             <transition name="JUMP CUT TO:"/>
+             <transition name="FADE TO BLACK"/>
+         </transitions>
+         <revision_colors>
+             <revision_color name="White" index="0" color_name="White" color_index="0"/>
+             <revision_color name="Blue" index="1" color_name="Blue" color_index="1"/>
+             <revision_color name="Pink" index="2" color_name="Pink" color_index="2"/>
+             <revision_color name="Yellow" index="3" color_name="Yellow" color_index="3"/>
+             <revision_color name="Green" index="4" color_name="Green" color_index="4"/>
+             <revision_color name="Goldenrod" index="5" color_name="Goldenrod" color_index="5"/>
+             <revision_color name="Buff" index="6" color_name="Buff" color_index="6"/>
+             <revision_color name="Salmon" index="7" color_name="Salmon" color_index="7"/>
+             <revision_color name="Cherry" index="8" color_name="Cherry" color_index="8"/>
+             <revision_color name="Tan" index="9" color_name="Tan" color_index="9"/>
+         </revision_colors>
+         <tag_categories>
+             <tag_category name="Cast"/>
+             <tag_category name="Extras"/>
+             <tag_category name="Stunts"/>
+             <tag_category name="Vehicles"/>
+             <tag_category name="Props"/>
+             <tag_category name="Special Effects"/>
+             <tag_category name="Costumes"/>
+             <tag_category name="Makeup"/>
+             <tag_category name="Animals"/>
+             <tag_category name="Animal Handler"/>
+             <tag_category name="Music"/>
+             <tag_category name="Sound"/>
+             <tag_category name="Set Dressing"/>
+             <tag_category name="Greenery"/>
+             <tag_category name="Special Equipment"/>
+             <tag_category name="Security"/>
+             <tag_category name="Additional Labor"/>
+             <tag_category name="Visual FX"/>
+             <tag_category name="Mechanical FX"/>
+             <tag_category name="Miscellaneous"/>
+             <tag_category name="Notes"/>
+         </tag_categories>
+     </lists>
+     <titlepage>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para bookmark="Title">
+             <style basestylename="Normal Text" align="center"/>
+             <text underline="1">TITLE</text>
+         </para>
+         <para>
+             <style basestylename="Normal Text" align="center"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text" align="center"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text" align="center"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text" align="center"/>
+             <text>Written by</text>
+         </para>
+         <para>
+             <style basestylename="Normal Text" align="center"/>
+             <text/>
+         </para>
+         <para bookmark="Author">
+             <style basestylename="Normal Text" align="center"/>
+             <text>Author&#39;s Name</text>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para bookmark="Copyright">
+             <style basestylename="Normal Text"/>
+             <text>Copyright (c) 2018</text>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para bookmark="Draft">
+             <style basestylename="Normal Text"/>
+             <text>Draft&#xA;information</text>
+         </para>
+         <para>
+             <style basestylename="Normal Text"/>
+             <text/>
+         </para>
+         <para bookmark="Contact">
+             <style basestylename="Normal Text"/>
+             <text>Contact&#xA;information</text>
+         </para>
+     </titlepage>
+ </document>

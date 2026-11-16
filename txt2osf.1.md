@@ -1,27 +1,68 @@
+%txt2osf(1) user manual | version 0.0.9 9812fdf
+% R. S. Doiel
+% 2026-10-20
 
-USAGE: txt2osf [OPTIONS]
+# NAME
 
-DESCRIPTION
+txt2osf — convert a Fountain or plain text screenplay to Open Screenplay Format
 
-txt2osf is a command line program that reads an plain text file
-and returns an OSF 2.0 text
+# SYNOPSIS
 
-OPTIONS
+txt2osf [OPTIONS] [INPUT_FILENAME [OUTPUT_FILENAME]]
 
-    -generate-manpage    generate man page
-    -generate-markdown   generate Markdown documentation
-    -h, -help            display help
-    -i, -input           set the input filename
-    -l, -license         display license
-    -nl, -newline        add a trailing newline
-    -o, -output          set the output filename
-    -quiet               suppress error messages
-    -v, -version         display version
+# DESCRIPTION
 
+txt2osf reads a plain text screenplay in Fountain markup and writes an Open Screenplay Format (OSF) 2.0 document.
 
-EXAMPLES
+# OPTIONS
 
-Convert *screenplay.txt* into *screenplay.osf*.
+-h, -help
+: display this help page
+
+-l, -license
+: display the license
+
+-v, -version
+: display the version
+
+-i, -input FILENAME
+: read from FILENAME; the default, and -, is standard input
+
+-o, -output FILENAME
+: write to FILENAME; the default, and -, is standard output
+
+-nl, -newline
+: add a trailing newline (the default is to add one; -nl=false leaves it out)
+
+-quiet
+: suppress error messages; the exit status still says what happened
+
+The input and output may also be given as the first and second argument.
+
+# EXIT STATUS
+
+0
+: success
+
+2
+: bad command line: an unknown option, a surplus argument
+
+65
+: the input is not valid Fountain
+
+66
+: the input file does not exist
+
+73
+: the output file cannot be created
+
+74
+: reading or writing failed part way
+
+77
+: the operating system refused access to a file
+
+# EXAMPLES
 
     txt2osf -i screenplay.txt -o screenplay.osf
 
@@ -29,4 +70,3 @@ Or alternatively
 
     cat screenplay.txt | txt2osf > screenplay.osf
 
-txt2osf 0.0.9

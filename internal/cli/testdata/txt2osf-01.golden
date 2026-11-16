@@ -1,0 +1,40 @@
+<document type="Open Screenplay Format document" version="20">
+    <paragraphs>
+        <para bookmark="Action">
+            <text>!FADE IN:</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Scene Heading">
+            <text>EXT. LIBRARY - DAY</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Action">
+            <text>A PROGRAMMER typing at an old laptop</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Character">
+            <text>PROGRAMMER</text>
+        </para>
+        <para bookmark="Parenthetical">
+            <text>(excited)</text>
+        </para>
+        <para bookmark="Dialogue">
+            <text>Eureka!</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+        <para bookmark="Transition">
+            <text>&gt; FADE TO BLACK.</text>
+        </para>
+        <para bookmark="Empty">
+            <text/>
+        </para>
+    </paragraphs>
+</document>
