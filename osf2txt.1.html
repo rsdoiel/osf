@@ -17,26 +17,83 @@
 </ul>
 </nav>
 <section id="main-content">
-<p>USAGE: osf2txt [OPTIONS]</p>
-<p>DESCRIPTION</p>
-<p>osf2txt is a command line program that reads an osf file and returns
-plain text</p>
-<p>OPTIONS</p>
-<pre><code>-generate-manpage    generate man page
--generate-markdown   generate Markdown documentation
--h, -help            display help
--i, -input           set the input filename
--l, -license         display license
--nl, -newline        add a trailing newline
--o, -output          set the output filename
--quiet               suppress error messages
--v, -version         display version</code></pre>
-<p>EXAMPLES</p>
-<p>Convert <em>screenplay.osf</em> into <em>screenplay.txt</em>.</p>
+<h1 id="name">NAME</h1>
+<p>osf2txt — convert an Open Screenplay Format document to plain
+text</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<p>osf2txt <a href="#options">OPTIONS</a> [INPUT_FILENAME
+[OUTPUT_FILENAME]]</p>
+<h1 id="description">DESCRIPTION</h1>
+<p>osf2txt reads an Open Screenplay Format (OSF) document and writes the
+screenplay as plain text.</p>
+<h1 id="options">OPTIONS</h1>
+<dl>
+<dt>-h, -help</dt>
+<dd>
+display this help page
+</dd>
+<dt>-l, -license</dt>
+<dd>
+display the license
+</dd>
+<dt>-v, -version</dt>
+<dd>
+display the version
+</dd>
+<dt>-i, -input FILENAME</dt>
+<dd>
+read from FILENAME; the default, and -, is standard input
+</dd>
+<dt>-o, -output FILENAME</dt>
+<dd>
+write to FILENAME; the default, and -, is standard output
+</dd>
+<dt>-nl, -newline</dt>
+<dd>
+add a trailing newline (the default is none)
+</dd>
+<dt>-quiet</dt>
+<dd>
+suppress error messages; the exit status still says what happened
+</dd>
+</dl>
+<p>The input and output may also be given as the first and second
+argument.</p>
+<h1 id="exit-status">EXIT STATUS</h1>
+<dl>
+<dt>0</dt>
+<dd>
+success
+</dd>
+<dt>2</dt>
+<dd>
+bad command line: an unknown option, a surplus argument
+</dd>
+<dt>65</dt>
+<dd>
+the input is not valid OSF XML
+</dd>
+<dt>66</dt>
+<dd>
+the input file does not exist
+</dd>
+<dt>73</dt>
+<dd>
+the output file cannot be created
+</dd>
+<dt>74</dt>
+<dd>
+reading or writing failed part way
+</dd>
+<dt>77</dt>
+<dd>
+the operating system refused access to a file
+</dd>
+</dl>
+<h1 id="examples">EXAMPLES</h1>
 <pre><code>osf2txt -i screenplay.osf -o screenplay.txt</code></pre>
 <p>Or alternatively</p>
 <pre><code>cat screenplay.osf | osf2txt &gt; screenplay.txt</code></pre>
-<p>osf2txt 0.0.9</p>
 </section>
 <footer>
 <p>osf</p>

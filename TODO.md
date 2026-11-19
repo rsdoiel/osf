@@ -59,4 +59,4 @@ To match the workspace standard (knowledge and opml are the models; Go 1.27.3 ac
 - [ ] Open a generated .osf in Fade In by hand and record the result (needs a machine with Fade In).
 - [x] Forced markers (`!`, `@`, `~`, `.`, `>`/`<`) are stripped in FromFountain (2026-11-18).
 - [x] Title page values are trimmed; Info is one line, title-page text keeps one line per line (2026-11-18).
-- [ ] fountain classifies `CUT TO:` as Action (isAction runs before isTransition); report upstream.
+- [ ] fountain bugs found through osf (recorded in fountain/TODO.md, 2026-11-18): transitions read as Action, `Int...`/`Ext...` action read as Scene Heading, `...` read as a forced heading. osf output for such scripts is wrong until fountain is fixed and osf requires that release.

@@ -18,11 +18,26 @@
 </nav>
 <section id="main-content">
 <h1 id="about-this-software">About this software</h1>
-<h2 id="osf-0.0.9">osf 0.0.9</h2>
-<p>Requires fountain v1.0.3 (scene numbers and boneyards are typed
-there); the go directive is now 1.26.4. No change to the OSF conversion.
-OSF keeps no per-scene number, so a Fountain scene number is not carried
-into OSF, and a boneyard stays a visible paragraph.</p>
+<h2 id="osf-0.0.10">osf 0.0.10</h2>
+Modernization to the workspace standard. Go 1.27.3 is the minimum
+version. The three programs (fadein2osf, osf2txt, txt2osf) use the
+standard library flag package instead of github.com/caltechlibrary/cli,
+with -h, -l and -v beside the long spellings. Requires fountain v1.0.4.
+Fixed: txt2osf (FromFountain) wrote each paragraph’s kind as a bookmark
+attribute, so Fade In could not tell a scene heading from action; it now
+writes
+<style basestylename="..."/>
+<p>as Fade In’s own files do, and no longer writes an empty paragraph
+for each Fountain blank line. Also fixed in txt2osf: Fountain forcing
+markers (!, @, ~, ., &gt;) are no longer left in the text, title page
+values are trimmed, and inline emphasis (<em>italic</em>,
+<strong>bold</strong>, <strong><em>both</em></strong>,
+<em>underline</em>) becomes formatted text runs instead of literal
+asterisks. osf2txt applies a paragraph’s style once, not once per text
+run. Test coverage of the library rose from 28% to 97%. The 32-bit
+Raspberry Pi (armv7l) target is dropped. The release scripts follow the
+workspace standard (a release is built from a clean, pushed commit, and
+an interrupted draft release resumes).</p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://orcid.org/0000-0003-0900-6903">R. S. Doiel</a></li>
@@ -43,14 +58,13 @@ Tracker</a></li>
 </ul>
 <h2 id="programming-languages">Programming languages</h2>
 <ul>
-<li>Go &gt;= 1.26.4</li>
+<li>Go &gt;= 1.27.3</li>
 </ul>
 <h2 id="software-requirements">Software Requirements</h2>
 <ul>
-<li>Go &gt;= 1.26.4</li>
-<li>github.com/rsdoiel/fountain &gt;= 1.0.3</li>
+<li>Go &gt;= 1.27.3</li>
+<li>github.com/rsdoiel/fountain &gt;= 1.0.4</li>
 <li>gopkg.in/yaml.v3 &gt;= 3.0.1</li>
-<li>github.com/caltechlibrary/cli &gt;= 0.0.18</li>
 </ul>
 <h2 id="software-suggestions">Software Suggestions</h2>
 <ul>
