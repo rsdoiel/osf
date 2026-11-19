@@ -74,6 +74,27 @@ func baseStyleFor(typeName string) (string, bool) {
 	return GeneralType, true
 }
 
+/** paragraphText builds the runs for one element: Notes and Boneyards are
+ * kept verbatim (their asterisks are delimiters or text), everything else
+ * gets inline emphasis.
+ *
+ * Parameters:
+ *   typeName (string) — the result of fountain.Element.TypeName()
+ *   content (string) — the element text with forcing markers removed
+ *
+ * Returns:
+ *   []*Text — the runs for the paragraph
+ *
+ * Example:
+ *   runs := paragraphText("Action", "He *runs*")
+ */
+func paragraphText(typeName, content string) []*Text {
+	if typeName == "Note" || typeName == "Boneyard" {
+		return plainText(content)
+	}
+	return StringToTextArray(content)
+}
+
 /** stripForcedMarker removes the Fountain forcing marker that fountain keeps
  * in an element's Content, so OSF carries only the text.
  *
@@ -131,17 +152,6 @@ func titleLines(content string) []string {
 		}
 	}
 	return lines
-}
-
-func StringToTextArray(s string) []*Text {
-	var a []*Text
-
-	//FIXME: if string has embedded formatting split into parts and set format attributes
-	// (e.g. text.Bold, text.Italic) as needed.
-	text := new(Text)
-	text.InnerText = s
-	a = append(a, text)
-	return a
 }
 
 // AddInfo parses a map[string]string and updates/adds Info struct to document as needed.
@@ -229,7 +239,7 @@ func (document *OpenScreenplay) FromFountain(screenplay *fountain.Fountain) {
 			}
 			para := new(Para)
 			para.Style = &Style{BaseStyleName: style}
-			para.Text = StringToTextArray(stripForcedMarker(elem.TypeName(), elem.Content))
+			para.Text = paragraphText(elem.TypeName(), stripForcedMarker(elem.TypeName(), elem.Content))
 			document.Paragraphs.Para = append(document.Paragraphs.Para, para)
 		}
 	}

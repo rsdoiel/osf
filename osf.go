@@ -333,35 +333,37 @@ func (text *Text) String() string {
 
 func (para *Para) String() string {
 	if para != nil {
-		src := []string{}
+		// The runs of one paragraph make one line of text; the style
+		// applies to the whole of it, not to each run.
+		runs := []string{}
 		for _, text := range para.Text {
-			s := text.String()
-			if para.Style != nil {
-				switch para.Style.BaseStyleName {
-				case GeneralType:
-					//s = s + "\n"
-				case SceneHeadingType:
-					s = strings.ToUpper(s) + "\n"
-				case ActionType:
-					s = s + "\n"
-				case CharacterType:
-					s = strings.ToUpper(s)
-				case DialogueType:
-					s = s + "\n"
-				case ParentheticalType:
-					if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
-						s = "(" + s + ")"
-					}
-				case TransitionType:
-					s = strings.ToUpper(s) + "\n"
-				case SingingType:
-					s = "~" + s
-				}
-			}
-			//FIXME: Apply formatting, FF and LF as needed
-			src = append(src, s)
+			runs = append(runs, text.String())
 		}
-		return strings.Join(src, "") + "\n"
+		s := strings.Join(runs, "")
+		if para.Style != nil {
+			switch para.Style.BaseStyleName {
+			case GeneralType:
+				//s = s + "\n"
+			case SceneHeadingType:
+				s = strings.ToUpper(s) + "\n"
+			case ActionType:
+				s = s + "\n"
+			case CharacterType:
+				s = strings.ToUpper(s)
+			case DialogueType:
+				s = s + "\n"
+			case ParentheticalType:
+				if strings.HasPrefix(s, "(") == false && strings.HasSuffix(s, ")") == false {
+					s = "(" + s + ")"
+				}
+			case TransitionType:
+				s = strings.ToUpper(s) + "\n"
+			case SingingType:
+				s = "~" + s
+			}
+		}
+		//FIXME: Apply formatting, FF and LF as needed
+		return s + "\n"
 	}
 	return ""
 }
