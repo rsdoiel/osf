@@ -1,40 +1,32 @@
 <document type="Open Screenplay Format document" version="20">
     <paragraphs>
-        <para bookmark="Action">
-            <text>!FADE IN:</text>
+        <para>
+            <style basestylename="Action"/>
+            <text>FADE IN:</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Scene Heading">
+        <para>
+            <style basestylename="Scene Heading"/>
             <text>EXT. LIBRARY - DAY</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>A PROGRAMMER typing at an old laptop</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Character">
+        <para>
+            <style basestylename="Character"/>
             <text>PROGRAMMER</text>
         </para>
-        <para bookmark="Parenthetical">
+        <para>
+            <style basestylename="Parenthetical"/>
             <text>(excited)</text>
         </para>
-        <para bookmark="Dialogue">
+        <para>
+            <style basestylename="Dialogue"/>
             <text>Eureka!</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Transition">
-            <text>&gt; FADE TO BLACK.</text>
-        </para>
-        <para bookmark="Empty">
-            <text/>
+        <para>
+            <style basestylename="Transition"/>
+            <text>FADE TO BLACK.</text>
         </para>
     </paragraphs>
 </document>

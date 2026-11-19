@@ -1,106 +1,86 @@
 <document type="Open Screenplay Format document" version="20">
-    <info title=" TITLE" written_by=" Author&#39;s Name" copyright=" Copyright (c) 2018" contact="&#xA;&#x9;Contact&#xA;&#x9;information&#xA;&#xA;" drafts="&#xA;&#x9;Draft&#xA;&#x9;information"/>
+    <info title="TITLE" written_by="Author&#39;s Name" copyright="Copyright (c) 2018" contact="Contact information" drafts="Draft information"/>
     <paragraphs>
-        <para bookmark="Action">
-            <text>!FADE IN:</text>
+        <para>
+            <style basestylename="Action"/>
+            <text>FADE IN:</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Scene Heading">
+        <para>
+            <style basestylename="Scene Heading"/>
             <text>EXT. INDUSTRIAL PARK - DAY</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>A low slung industrial building in an industrial center. The last car leaves the lot. Parking lot lights switch off.</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>CROSS FADE TO:</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Scene Heading">
+        <para>
+            <style basestylename="Scene Heading"/>
             <text>INT. OFFICE - NIGHT</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>A PROGRAMMER stares at the screen.</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Character">
+        <para>
+            <style basestylename="Character"/>
             <text>PROGRAMMER</text>
         </para>
-        <para bookmark="Parenthetical">
+        <para>
+            <style basestylename="Parenthetical"/>
             <text>(drowsy)</text>
         </para>
-        <para bookmark="Dialogue">
+        <para>
+            <style basestylename="Dialogue"/>
             <text>What algorithm is this?</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>CUT TO:</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Scene Heading">
+        <para>
+            <style basestylename="Scene Heading"/>
             <text>EXT. COURTYARD - DAY</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Action">
+        <para>
+            <style basestylename="Action"/>
             <text>A programmer lounges by a fountain.</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Character">
+        <para>
+            <style basestylename="Character"/>
             <text>PROGRAMMER</text>
         </para>
-        <para bookmark="Parenthetical">
+        <para>
+            <style basestylename="Parenthetical"/>
             <text>(drowsy)</text>
         </para>
-        <para bookmark="Dialogue">
+        <para>
+            <style basestylename="Dialogue"/>
             <text>This is what I remember.</text>
         </para>
-        <para bookmark="Empty">
-            <text/>
-        </para>
-        <para bookmark="Transition">
-            <text>&gt; FADE TO BLACK.</text>
-        </para>
-        <para bookmark="Empty">
-            <text/>
+        <para>
+            <style basestylename="Transition"/>
+            <text>FADE TO BLACK.</text>
         </para>
     </paragraphs>
     <titlepage>
         <para bookmark="Title">
-            <text> TITLE</text>
+            <text>TITLE</text>
         </para>
         <para bookmark="Author">
-            <text> Author&#39;s Name</text>
+            <text>Author&#39;s Name</text>
         </para>
         <para bookmark="Drafts">
-            <text>&#xA;&#x9;Draft&#xA;&#x9;information</text>
+            <text>Draft&#xA;information</text>
         </para>
         <para bookmark="Copyright">
-            <text> Copyright (c) 2018</text>
+            <text>Copyright (c) 2018</text>
         </para>
         <para bookmark="Contact">
-            <text>&#xA;&#x9;Contact&#xA;&#x9;information&#xA;&#xA;</text>
+            <text>Contact&#xA;information</text>
         </para>
     </titlepage>
 </document>

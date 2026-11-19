@@ -36,6 +36,103 @@ import (
 	"github.com/rsdoiel/fountain"
 )
 
+/** baseStyleFor maps a Fountain element type name to the OSF base style
+ * that Fade In and other OSF readers expect in <style basestylename="..."/>.
+ *
+ * Parameters:
+ *   typeName (string) — the result of fountain.Element.TypeName()
+ *
+ * Returns:
+ *   string — the OSF base style name
+ *   bool — false for elements that are not paragraphs (blank lines and
+ *          page feeds), which the caller leaves out
+ *
+ * Example:
+ *   style, ok := baseStyleFor("Scene Heading") // "Scene Heading", true
+ */
+func baseStyleFor(typeName string) (string, bool) {
+	switch typeName {
+	case "Empty", "Page Feed":
+		return "", false
+	case "Scene Heading":
+		return SceneHeadingType, true
+	case "Action":
+		return ActionType, true
+	case "Character":
+		return CharacterType, true
+	case "Dialogue":
+		return DialogueType, true
+	case "Parenthetical":
+		return ParentheticalType, true
+	case "Transition":
+		return TransitionType, true
+	case "Lyric":
+		return SingingType, true
+	}
+	// General Text, Note, Boneyard and anything else stay visible as
+	// Normal Text; OSF has no better home for them.
+	return GeneralType, true
+}
+
+/** stripForcedMarker removes the Fountain forcing marker that fountain keeps
+ * in an element's Content, so OSF carries only the text.
+ *
+ * Parameters:
+ *   typeName (string) — the result of fountain.Element.TypeName()
+ *   content (string) — the element's Content as fountain.Parse gave it
+ *
+ * Returns:
+ *   string — content without its marker: a leading "!" on Action, "@" on
+ *            Character, "~" on Lyric, "." on Scene Heading (not an
+ *            ellipsis), and a leading ">" and trailing "<" on Transition
+ *
+ * Example:
+ *   stripForcedMarker("Transition", "> THE END <") // "THE END"
+ */
+func stripForcedMarker(typeName, content string) string {
+	switch typeName {
+	case "Action":
+		return strings.TrimPrefix(content, "!")
+	case "Character":
+		return strings.TrimPrefix(content, "@")
+	case "Lyric":
+		return strings.TrimPrefix(content, "~")
+	case "Scene Heading":
+		if strings.HasPrefix(content, ".") && !strings.HasPrefix(content, "..") {
+			return content[1:]
+		}
+	case "Transition":
+		if strings.HasPrefix(content, ">") {
+			content = strings.TrimSpace(strings.TrimPrefix(content, ">"))
+			content = strings.TrimSpace(strings.TrimSuffix(content, "<"))
+		}
+	}
+	return content
+}
+
+/** titleLines splits a title page value into its trimmed, non-empty lines.
+ * fountain keeps the space after "Key:" and the indentation of a
+ * multi-line value.
+ *
+ * Parameters:
+ *   content (string) — an Element.Content from fountain's TitlePage
+ *
+ * Returns:
+ *   []string — the lines, each trimmed, blank ones dropped
+ *
+ * Example:
+ *   titleLines("\n\tContact\n\tinformation\n") // ["Contact", "information"]
+ */
+func titleLines(content string) []string {
+	var lines []string
+	for _, line := range strings.Split(content, "\n") {
+		if line = strings.TrimSpace(line); line != "" {
+			lines = append(lines, line)
+		}
+	}
+	return lines
+}
+
 func StringToTextArray(s string) []*Text {
 	var a []*Text
 
@@ -61,59 +158,61 @@ func (document *OpenScreenplay) FromFountain(screenplay *fountain.Fountain) {
 
 		// NOTE: build a map of elements that will belong to Info.
 		for _, elem := range screenplay.TitlePage {
+			lines := titleLines(elem.Content)
+			one, block := strings.Join(lines, " "), strings.Join(lines, "\n")
 			switch strings.ToLower(elem.Name) {
 			case "title":
-				document.Info.Title = elem.Content
+				document.Info.Title = one
 				para := new(Para)
 				para.Bookmark = "Title"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "credit":
-				document.Info.WrittenBy = elem.Content
+				document.Info.WrittenBy = one
 				para := new(Para)
 				para.Bookmark = "Credits"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "author":
-				document.Info.WrittenBy = elem.Content
+				document.Info.WrittenBy = one
 				para := new(Para)
 				para.Bookmark = "Author"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "copyright":
-				document.Info.Copyright = elem.Content
+				document.Info.Copyright = one
 				para := new(Para)
 				para.Bookmark = "Copyright"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "draft date":
-				document.Info.Drafts = elem.Content
+				document.Info.Drafts = one
 				para := new(Para)
 				para.Bookmark = "Drafts"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "contact":
-				document.Info.Contact = elem.Content
+				document.Info.Contact = one
 				para := new(Para)
 				para.Bookmark = "Contact"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "source":
 				para := new(Para)
 				para.Bookmark = "Source"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "story by":
 				para := new(Para)
 				para.Bookmark = "Story By"
-				para.Text = StringToTextArray(elem.Content)
+				para.Text = StringToTextArray(block)
 				document.TitlePage.Para = append(document.TitlePage.Para, para)
 			case "uuid":
-				document.Info.UUID = elem.Content
+				document.Info.UUID = one
 			case "page_count":
-				document.Info.PageCount = elem.Content
+				document.Info.PageCount = one
 			case "title_format":
-				document.Info.TitleFormat = elem.Content
+				document.Info.TitleFormat = one
 			}
 		}
 	}
@@ -124,9 +223,13 @@ func (document *OpenScreenplay) FromFountain(screenplay *fountain.Fountain) {
 			document.Paragraphs = new(Paragraphs)
 		}
 		for _, elem := range screenplay.Elements {
+			style, ok := baseStyleFor(elem.TypeName())
+			if !ok {
+				continue
+			}
 			para := new(Para)
-			para.Bookmark = elem.TypeName()
-			para.Text = StringToTextArray(elem.Content)
+			para.Style = &Style{BaseStyleName: style}
+			para.Text = StringToTextArray(stripForcedMarker(elem.TypeName(), elem.Content))
 			document.Paragraphs.Para = append(document.Paragraphs.Para, para)
 		}
 	}
