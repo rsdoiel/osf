@@ -1,6 +1,6 @@
-%fadein2osf(1) user manual | version 0.0.9 9812fdf
+%fadein2osf(1) user manual | version 0.0.10 722e57f
 % R. S. Doiel
-% 2026-10-20
+% 2026-11-18
 
 # NAME
 

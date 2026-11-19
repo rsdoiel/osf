@@ -6,12 +6,12 @@
   "codeRepository": "https://github.com/rsdoiel/osf",
   "issueTracker": "https://github.com/rsdoiel/osf/issues",
   "license": "https://www.gnu.org/licenses/agpl-3.0.txt",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "developmentStatus": "active",
-  "releaseNotes": "Requires fountain v1.0.3 (scene numbers and boneyards are typed there); the go directive is now 1.26.4. No change to the OSF conversion. OSF keeps no per-scene number, so a Fountain scene number is not carried into OSF, and a boneyard stays a visible paragraph.",
+  "releaseNotes": "Modernization to the workspace standard. Go 1.27.3 is the minimum version. The three programs (fadein2osf, osf2txt, txt2osf) use the standard library flag package instead of github.com/caltechlibrary/cli, with -h, -l and -v beside the long spellings. Requires fountain v1.0.4. Fixed: txt2osf (FromFountain) wrote each paragraph's kind as a bookmark attribute, so Fade In could not tell a scene heading from action; it now writes <style basestylename=\"...\"/> as Fade In's own files do, and no longer writes an empty paragraph for each Fountain blank line. Also fixed in txt2osf: Fountain forcing markers (!, @, ~, ., >) are no longer left in the text, title page values are trimmed, and inline emphasis (*italic*, **bold**, ***both***, _underline_) becomes formatted text runs instead of literal asterisks. osf2txt applies a paragraph's style once, not once per text run. Test coverage of the library rose from 28% to 97%. The 32-bit Raspberry Pi (armv7l) target is dropped. The release scripts follow the workspace standard (a release is built from a clean, pushed commit, and an interrupted draft release resumes).",
   "dateCreated": "2017-12-22",
-  "dateModified": "2026-10-20",
-  "datePublished": "2026-10-20",
+  "dateModified": "2026-11-18",
+  "datePublished": "2026-11-18",
   "copyrightYear": 2017,
   "copyrightHolder": "R. S. Doiel",
   "programmingLanguage": [
@@ -19,7 +19,7 @@
   ],
   "softwareRequirements": [
     "Go >= 1.27.3",
-    "github.com/rsdoiel/fountain >= 1.0.3",
+    "github.com/rsdoiel/fountain >= 1.0.4",
     "gopkg.in/yaml.v3 >= 3.0.1"
   ],
   "softwareSuggestions": [

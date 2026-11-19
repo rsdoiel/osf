@@ -14,7 +14,7 @@ maintainer:
     id: https://orcid.org/0000-0003-0900-6903
 
 repository_code: https://github.com/rsdoiel/osf
-version: 0.0.9
+version: 0.0.10
 license_url: https://www.gnu.org/licenses/agpl-3.0.txt
 
 programming_language:
@@ -25,15 +25,15 @@ keywords:
   - text markup
   - screen play
 
-date_released: 2026-10-20
+date_released: 2026-11-18
 ---
 
 About this software
 ===================
 
-## osf 0.0.9
+## osf 0.0.10
 
-Requires fountain v1.0.3 (scene numbers and boneyards are typed there); the go directive is now 1.26.4. No change to the OSF conversion. OSF keeps no per-scene number, so a Fountain scene number is not carried into OSF, and a boneyard stays a visible paragraph.
+Modernization to the workspace standard. Go 1.27.3 is the minimum version. The three programs (fadein2osf, osf2txt, txt2osf) use the standard library flag package instead of github.com/caltechlibrary/cli, with -h, -l and -v beside the long spellings. Requires fountain v1.0.4. Fixed: txt2osf (FromFountain) wrote each paragraph's kind as a bookmark attribute, so Fade In could not tell a scene heading from action; it now writes <style basestylename="..."/> as Fade In's own files do, and no longer writes an empty paragraph for each Fountain blank line. Also fixed in txt2osf: Fountain forcing markers (!, @, ~, ., >) are no longer left in the text, title page values are trimmed, and inline emphasis (*italic*, **bold**, ***both***, _underline_) becomes formatted text runs instead of literal asterisks. osf2txt applies a paragraph's style once, not once per text run. Test coverage of the library rose from 28% to 97%. The 32-bit Raspberry Pi (armv7l) target is dropped. The release scripts follow the workspace standard (a release is built from a clean, pushed commit, and an interrupted draft release resumes).
 
 ## Authors
 
@@ -63,7 +63,7 @@ A library and command line programs for working with FadeIn and Open Screenplay 
 ## Software Requirements
 
 - Go >= 1.27.3
-- github.com/rsdoiel/fountain >= 1.0.3
+- github.com/rsdoiel/fountain >= 1.0.4
 - gopkg.in/yaml.v3 >= 3.0.1
 
 
